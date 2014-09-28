@@ -1,0 +1,394 @@
+//
+// Style
+// --------------------------------------------------
+
+
+//
+// Global
+// --------------------------------------------------
+
+body {
+    text-rendering: optimizeLegibility;
+    font-smooth: always;
+    font-smoothing: antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: antialiased;
+}
+
+
+//
+// Layout
+// --------------------------------------------------
+
+.content-wrapper {
+    margin: 0 0;
+}
+.wrapper {
+    .make-row(20px);
+}
+.content-6-main {
+    .make-md-column(6; 20px);
+    .make-lg-column(6; 20px);
+}
+.content-6-sidebar {
+    .make-md-column(6; 20px);
+    .make-lg-column(6; 20px);
+}
+.content-8-main {
+    .make-md-column(8; 20px);
+    .make-lg-column(8; 20px);
+}
+.content-8-sidebar {
+    .make-md-column(4; 20px);
+    .make-lg-column(4; 20px);
+}
+.content-9-main {
+    .make-md-column(9; 20px);
+    .make-lg-column(9; 20px);
+}
+.content-9-sidebar {
+    .make-md-column(3; 20px);
+    .make-lg-column(3; 20px);
+}
+.content-10-main {
+    .make-md-column(10; 20px);
+    .make-lg-column(10; 20px);
+}
+.content-10-sidebar {
+    .make-md-column(2; 20px);
+    .make-lg-column(2; 20px);
+}
+.content-12-main {
+    .make-md-column(12; 20px);
+    .make-lg-column(12; 20px);
+}
+
+
+//
+// forms.less
+// --------------------------------------------------
+
+// CHECKBOXES & RADIOS
+// -------------------
+// Radios and checkboxes on same line
+.radio-small, .radio-medium, .radio-large,
+.checkbox-small, .checkbox-medium, .checkbox-large {
+    margin-top: 0;
+    margin-bottom: 10px;
+    .radio-inline, .checkbox-inline, .selected {
+        display: inline-block;
+        //  padding-top: 5px;
+        padding-left: 20px;
+        margin-bottom: 0;
+        vertical-align: middle;
+        font-weight: normal;
+        cursor: pointer;
+        input[type="checkbox"], input[type="checkbox"] {
+            float: left;
+            margin-left: -20px;
+        }
+    }
+    .radio-inline + .radio-inline, .checkbox-inline + .checkbox-inline, .selected + .selected {
+        margin: 0;
+    }
+}
+
+.radio-small, .checkbox-small {
+    .radio-inline, .checkbox-inline, .selected {
+        width: 49%;
+    }
+}
+.radio-medium, .checkbox-medium {
+    .radio-inline, .checkbox-inline, .selected {
+        width: 49%;
+    }
+}
+.radio-large, .checkbox-large {
+    .radio-inline, .checkbox-inline, .selected {
+        width: 99%;
+    }
+}
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max) {
+    .radio-small, .checkbox-small {
+        .radio-inline, .checkbox-inline, .selected {
+            width: 24%;
+        }
+    }
+    .radio-medium, .checkbox-medium {
+        .radio-inline, .checkbox-inline, .selected {
+            width: 32%;
+        }
+    }
+    .radio-large, .checkbox-large {
+        .radio-inline, .checkbox-inline, .selected {
+            width: 49%;
+        }
+    }
+}
+@media (min-width: @screen-md-min) and (max-width: @screen-md-max) {
+    .radio-small, .checkbox-small {
+        .radio-inline, .checkbox-inline, .selected {
+            width: 24%;
+        }
+    }
+    .radio-medium, .checkbox-medium {
+        .radio-inline, .checkbox-inline, .selected {
+            width: 32%;
+        }
+    }
+    .radio-large, .checkbox-large {
+        .radio-inline, .checkbox-inline, .selected {
+            width: 49%;
+        }
+    }
+}
+@media (min-width: @screen-lg-min) {
+    .radio-small, .checkbox-small {
+        .radio-inline, .checkbox-inline, .selected {
+            width: 24%;
+        }
+    }
+    .radio-medium, .checkbox-medium {
+        .radio-inline, .checkbox-inline, .selected {
+            width: 32%;
+        }
+    }
+    .radio-large, .checkbox-large {
+        .radio-inline, .checkbox-inline, .selected {
+            width: 49%;
+        }
+    }
+}
+
+
+
+//
+// Typography
+// --------------------------------------------------
+
+// Horizontal description lists
+//
+// Defaults to being stacked without any of the below styles applied, until the
+// grid breakpoint is reached (default of ~768px).
+
+@media (min-width: @grid-float-breakpoint) {
+  .dl-horizontal-small {
+    dt {
+      width: 60px;
+    }
+    dd {
+      margin-left: 80px;
+    }
+  }
+}
+
+
+
+
+
+// Base
+// -------------------------
+
+
+// Typography
+// -------------------------
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+}
+
+small, .small {
+    font-weight: normal;
+}
+
+.text-white {
+    color: #ffffff !important;
+}
+.error-message {
+  display: block;
+  margin-bottom: 10px;
+  .text-emphasis-variant(@state-danger-text);
+}
+
+
+// Headings
+// -------------------------
+
+
+
+
+//
+// Image
+// --------------------------------------------------
+a img {  
+    -webkit-transition: 0.3s ease-in-out;
+       -moz-transition: 0.3s ease-in-out;
+         -o-transition: 0.3s ease-in-out;
+            transition: 0.3s ease-in-out;
+}
+a:hover img.img-hover {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    -ms-filter: "alpha(opacity=40)";
+    background: #ffffff none;
+}
+
+
+
+
+// Box
+// -------------------------
+.box {
+    display: block;
+    width: auto;
+    min-height: 20px;
+    margin: 0 0 10px 0;
+    padding: 0;
+    background: transparent none;
+    overflow: visible;
+    .clearfix();
+    p:last-child, ul:last-child, ol:last-child, table:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+
+
+//
+// Responsive Data Table
+// --------------------------------------------------
+@dlResponsiveBack: #eeeeee;
+@dlResponsiveBorder: #dddddd;
+
+.dl-responsive {
+    margin-bottom: 10px;
+    .dl-responsive-header {
+        display: none;
+    }
+    .dl-responsive-row {
+        dl {
+            margin-top: 0;
+            margin-bottom: 0;
+            dt, dd {
+                padding: 5px 5px;
+                font-size: 12px;
+                line-height: 1.2;
+                border-top: 1px solid @dlResponsiveBorder;
+            }
+            dt {
+                background: @dlResponsiveBack none;
+            }
+        }
+    }
+}
+
+@media (min-width: @screen-xs-min) {
+    .dl-responsive {
+        display: table;
+        width: 100%;
+        border-bottom: 1px solid @dlResponsiveBorder;
+        border-left: 1px solid @dlResponsiveBorder;
+        .dl-responsive-header {
+            display: table-header-group;
+            ol {
+                display: table-row;
+                margin: 0;
+                li {
+                    display: table-cell;
+                    padding: 5px 10px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    text-align: center;
+                    line-height: 1.2;
+                    background: @dlResponsiveBack none;
+                    border-top: 1px solid @dlResponsiveBorder;
+                    border-right: 1px solid @dlResponsiveBorder;
+                }
+            }
+        }
+        .dl-responsive-row {
+            display: table-row-group;
+            dl {
+                display: table-row;
+                margin: 0;
+                dt, dd {
+                    display: table-cell;
+                    padding: 5px 10px;
+                    font-size: 12px;
+                    line-height: 1.2;
+                    border-top: 1px solid @dlResponsiveBorder;
+                    border-right: 1px solid @dlResponsiveBorder;
+                }
+                dt {
+                    width: 120px;
+                    background: @dlResponsiveBack none;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+//
+// Plugin Style
+// --------------------------------------------------
+// gmaps.js
+#map {
+    display: block;
+    margin: 0;
+    label { width: auto; display:inline; }
+    img { max-width: none; }
+}
+
+
+
+//
+// General Style
+// --------------------------------------------------
+.bg { background: #ffffff none !important; }
+
+// Margin and Padding
+// -------------------------
+.mg-0 { margin: 0px !important; }
+.pd-0 { padding: 0px !important; }
+.mg-5 { margin: 5px !important; }
+.mg-10 { margin: 10px !important; }
+.mg-20 { margin: 20px !important; }
+.pd-5 { padding: 5px !important; }
+.pd-10 { padding: 10px !important; }
+.pd-20 { padding: 20px !important; }
+
+.mt-0 { margin-top: 0px !important; }
+.mt-5 { margin-top: 5px !important; }
+.mt-10 { margin-top: 10px !important; }
+.mt-20 { margin-top: 20px !important; }
+.mb-0 { margin-bottom: 0px !important; }
+.mb-5 { margin-bottom: 5px !important; }
+.mb-10 { margin-bottom: 10px !important; }
+.mb-20 { margin-bottom: 20px !important; }
+
+.pt-0 { padding-top: 0px !important; }
+.pt-5 { padding-top: 5px !important; }
+.pt-10 { padding-top: 10px !important; }
+.pt-20 { padding-top: 20px !important; }
+.pb-0 { padding-bottom: 0px !important; }
+.pb-5 { padding-bottom: 5px !important; }
+.pb-10 { padding-bottom: 10px !important; }
+.pb-20 { padding-bottom: 20px !important; }
+.ps-5 { padding-right: 5px !important; padding-left: 5px !important; }
+.ps-10 { padding-right: 10px !important; padding-left: 10px !important; }
+
+// Font Style
+// -------------------------
+.tx-10 { font-size: 10px !important; }
+.tx-11 { font-size: 11px !important; }
+.tx-12 { font-size: 12px !important; }
+.tx-13 { font-size: 13px !important; }
+.tx-14 { font-size: 14px !important; }
+.lh-10 { line-height: 1.0 !important; }
+.lh-12 { line-height: 1.2 !important; }
+
+
