@@ -12,7 +12,7 @@
     h1 {
         font-size: 64px;
         font-family: 'Lato', sans-serif;
-        font-weight: 900;
+        font-weight: 300;
         color: #ffffff;
     }
     p {
@@ -23,13 +23,13 @@
 h2 {
     font-size: 32px;
     font-family: 'Lato', sans-serif;
-    font-weight: 700;
+    font-weight: 300;
     color: #333333;
 }
 h3 {
     font-size: 16px;
     font-family: 'Lato', sans-serif;
-    font-weight: 400;
+    font-weight: 300;
     color: #333333;
 }
 
@@ -45,3 +45,132 @@ h3 {
         color: #ffffff;
     }
 }
+
+
+// Mixins
+// --------------------------------------------------
+#section-mixins {
+    .box-demo {
+        margin-bottom: 10px;
+        padding: 20px;
+        p {
+            margin: 0;
+        }
+    }
+}
+
+.box-line-01 {
+    .box-line-top { .line-top(1.0, 0.1); }
+    .box-line-right { .line-right(1.0, 0.1); }
+    .box-line-bottom { .line-bottom(1.0, 0.1); }
+    .box-line-left { .line-left(1.0, 0.1); }
+}
+.box-line-02 {
+    .box-line-top { .line-top(0.1, 1.0); }
+    .box-line-right { .line-right(0.1, 1.0); }
+    .box-line-bottom { .line-bottom(0.1, 1.0); }
+    .box-line-left { .line-left(0.1, 1.0); }
+}
+
+
+
+.text-shadow-000 {
+    color: #ffffff;
+    .ts-000();
+}
+.text-shadow-fff {
+    color: #333333;
+    .ts-fff();
+}
+
+.back-top-lighten {
+    .gradient-top-lighten(#222222);
+}
+.back-bottom-lighten {
+    .gradient-bottom-lighten(#222222);
+}
+.back-top-darken {
+    .gradient-top-darken(#48b1f2);
+}
+.back-bottom-darken {
+    .gradient-bottom-darken(#48b1f2);
+}
+
+.box-border {
+    .box-border();
+}
+.box-rich {
+    .box-rich();
+}
+.box-deboss {
+    .box-deboss();
+}
+.box-emboss {
+    .box-emboss();
+}
+
+
+
+
+
+// Buttons
+// --------------------------------------------------
+
+#section-buttons {
+    .btn {
+        margin-bottom: 10px;
+    }
+}
+
+
+
+
+
+
+// Balloons
+// --------------------------------------------------
+@demo-balloon-back-color:        #eeeeee;
+@demo-balloon-line-color:        #cccccc;
+
+.box-balloon, .box-balloon-border {
+    margin-bottom: 10px;
+    padding: 20px;
+    p {
+        margin: 0;
+    }
+}
+.box-balloon {
+    background: @demo-balloon-back-color none;
+}
+.box-balloon-border {
+    background: @demo-balloon-back-color none;
+    border: 1px solid @demo-balloon-line-color;
+}
+
+.box-balloon-left {
+    .balloon-left(6px; @demo-balloon-back-color; 6px);
+}
+.box-balloon-left-border {
+    .balloon-left-border(6px; @demo-balloon-back-color; 6px; @demo-balloon-line-color; 1px);
+}
+.box-balloon-right {
+    .balloon-right(6px; @demo-balloon-back-color; 6px);
+}
+.box-balloon-right-border {
+    .balloon-right-border(6px; @demo-balloon-back-color; 6px; @demo-balloon-line-color; 1px);
+}
+.box-balloon-top {
+    .balloon-top(6px; @demo-balloon-back-color; 6px);
+}
+.box-balloon-top-border {
+    .balloon-top-border(6px; @demo-balloon-back-color; 6px; @demo-balloon-line-color; 1px);
+}
+.box-balloon-bottom {
+    .balloon-bottom(6px; @demo-balloon-back-color; 6px);
+}
+.box-balloon-bottom-border {
+    .balloon-bottom-border(6px; @demo-balloon-back-color; 6px; @demo-balloon-line-color; 1px);
+}
+
+
+

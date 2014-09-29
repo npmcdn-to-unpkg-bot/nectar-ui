@@ -6,7 +6,7 @@
 .masthead h1 {
   font-size: 64px;
   font-family: 'Lato', sans-serif;
-  font-weight: 900;
+  font-weight: 300;
   color: #ffffff;
 }
 .masthead p {
@@ -15,13 +15,13 @@
 h2 {
   font-size: 32px;
   font-family: 'Lato', sans-serif;
-  font-weight: 700;
+  font-weight: 300;
   color: #333333;
 }
 h3 {
   font-size: 16px;
   font-family: 'Lato', sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   color: #333333;
 }
 .box-color-palette {
@@ -31,4 +31,7 @@ h3 {
 .box-color-palette p {
   margin: 0;
   color: #ffffff;
+}
+#section-buttons .btn {
+  margin-bottom: 10px;
 }

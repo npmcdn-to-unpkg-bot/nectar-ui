@@ -1,0 +1,23 @@
+//
+// Lines
+// --------------------------------------------------
+
+
+.line-top(@black: .2, @white: .4) {
+    border-top: 1px solid rgba(0, 0, 0, @black);
+    .box-shadow(rgba(255, 255, 255, @white) 0 1px 0 inset);
+}
+.line-right(@black: .2, @white: .4) {
+    border-right: 1px solid rgba(0, 0, 0, @black);
+    .box-shadow(rgba(255, 255, 255, @white) -1px 0 0 inset);
+}
+.line-bottom(@black: .2, @white: .4) {
+    border-bottom: 1px solid rgba(0, 0, 0, @black);
+    .box-shadow(rgba(255, 255, 255, @white)0 1px 0);
+}
+
+.line-left(@black: .2, @white: .4) {
+    border-left: 1px solid rgba(0, 0, 0, @black);
+    .box-shadow(rgba(255, 255, 255, @white) -1px 0 0);
+}
+

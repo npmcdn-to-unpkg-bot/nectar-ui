@@ -1,0 +1,24 @@
+//
+// Box Shadow
+// --------------------------------------------------
+
+
+// overload .box-shadow
+.box-shadow(@shadow1, @shadow2) {
+  -webkit-box-shadow: @shadow1, @shadow2; // iOS < 4.3 & Android < 4.1
+          box-shadow: @shadow1, @shadow2;
+}
+.box-border(@shadow: 0.15) {
+    .box-shadow(rgba(0, 0, 0, @shadow) 0 0 2px);
+}
+.box-rich(@shadow: .2) {
+    .box-shadow(rgba(0, 0, 0, @shadow) 0 0 20px inset);
+}
+.box-deboss(@border: .1, @shadow: .05, @highlight: .8) {
+    border: 1px solid rgba(0, 0, 0, @border);
+    .box-shadow(rgba(0, 0, 0, @shadow) -1px 1px 2px inset, rgba(255, 255, 255, @highlight) -1px 1px 0);
+}
+.box-emboss(@border: .1, @shadow: .05, @highlight: .5) {
+    border: 1px solid rgba(0, 0, 0, @border);
+    .box-shadow(rgba(0, 0, 0, @shadow) -1px 1px 0, rgba(255, 255, 255, @highlight) -1px 1px 0 inset);
+}

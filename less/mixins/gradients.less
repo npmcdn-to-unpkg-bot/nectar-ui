@@ -1,0 +1,27 @@
+//
+// Gradients
+// --------------------------------------------------
+
+
+.gradient-top-lighten(@color : #666, @lighten: 10%) {
+    background-color: @color;
+    #gradient > .vertical(lighten(@color, @lighten), @color);
+    background-image: linear-gradient(lighten(@color, @lighten) 0%, @color 100%);
+}
+.gradient-bottom-lighten(@color : #666, @lighten: 10%) {
+    background-color: @color;
+    #gradient > .vertical(@color, lighten(@color, @lighten));
+    background-image: linear-gradient(@color 0%, lighten(@color, @lighten) 100%);
+}
+
+.gradient-top-darken(@color : #666, @darken: 10%) {
+    background-color: @color;
+    #gradient > .vertical(darken(@color, @darken), @color);
+    background-image: linear-gradient(darken(@color, @darken) 0%, @color 100%);
+}
+.gradient-bottom-darken(@color : #666, @darken: 10%) {
+    background-color: @color;
+    #gradient > .vertical(@color, darken(@color, @darken));
+    background-image: linear-gradient(@color 0%, darken(@color, @darken) 100%);
+}
+
