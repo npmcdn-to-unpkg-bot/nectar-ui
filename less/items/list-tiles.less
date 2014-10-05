@@ -1,0 +1,119 @@
+//
+// Item List Tiles
+// --------------------------------------------------
+
+
+.item-list-tile {
+    .item-list-tile-inner {
+        margin: 0 0 10px 0;
+        padding: 0;
+        background: #ffffff none;
+        border-radius: 2px;
+        .box-border();
+    }
+    &.bl-hover .item-list-tile-inner {
+        background: lighten(@link-color, 40%);
+    }
+
+    // アイコン
+    span.glyphicon, span.tsicon {
+        color: #cccccc;
+        margin-right: 2px;
+    }
+
+    // 囲い
+    .item-list-tile-image {
+        position: relative;
+        margin: 0;
+        .item-list-tile-label {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            p {
+                margin: 0;
+                padding: 0;
+                color: #ffffff;
+                text-align: center;
+                // 省略
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                -webkit-text-overflow: ellipsis; 
+                -o-text-overflow: ellipsis;
+            }
+        }
+        .item-list-tile-label-text {
+            padding: 2px 5px;
+            font-size: 11px;
+            font-weight: bold;
+            line-height: 1.0;
+            background: #000000 none;
+        }
+    }
+    .item-list-tile-main {
+        padding: 10px;
+    }
+    .item-list-tile-footer {
+        padding: 10px;
+        background: #f5f5f5;
+        border-top: 1px solid #e5e5e5;
+        p {
+            margin: 0;
+            padding: 0;
+            font-size: 11px;
+            line-height: 1.2;
+            color: #888888;
+        }
+    }
+    // データ
+    p.item-list-tile-data {
+        margin: 0 0 5px 0;
+        font-size: 10px;
+        line-height: 1.2;
+        color: #888888;
+        text-align: right;
+    }
+    // タイトル
+    .item-list-tile-title {
+        margin: 0 0 0 0;
+        padding: 0;
+        .clearfix();
+        h4 {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            line-height: 1.0;
+            font-weight: bold;
+            color: #444444;
+        }
+        p {
+            margin: 0 0 2px 0;
+            padding: 0;
+            font-size: 10px;
+            line-height: 1.0;
+            color: #444444;
+            &.item-list-tile-date {
+            }
+        }
+    }
+    // 概要
+    p.item-list-tile-text {
+        margin: 5px 0 0 0;
+        font-size: 11px;
+        line-height: 1.2;
+        color: #666666;
+    }
+}
+@media (max-width: @screen-xs-max) {
+    .item-list-tile-list {
+        .item-list-tile-main {
+            padding-left: 0;
+        }
+        .item-list-tile-footer {
+            margin-right: 10px;
+            padding-right: 0;
+            padding-left: 0;
+            background: transparent;
+        }
+    }
+}

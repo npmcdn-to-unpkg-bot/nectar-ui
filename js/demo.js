@@ -1,37 +1,78 @@
 
+/*!
+ * テキストボックス内で改行を無効にする
+ * http://jsdo.it/mnk/noenter
+**/
+$('.cancelEnter').bind('keydown', function(e) {
+    if (e.which === 13) {
+        return false;
+    }
+}).bind('blur', function() {
+    // 貼りつけられたテキストの改行コードを削除
+    var $textarea = $(this),
+        text = $textarea.val(),
+        new_text = text.replace(/\n/g, "");
+    if (new_text !== text) {
+        $textarea.val(new_text);
+    }
+});
 
 
-
-!function(a) {
-    a(function() {
-        var b = a(window), c = a(document.body);
-        c.scrollspy({
-            target: ".bs-docs-sidebar"
-        }), b.on("load", function() {
-            c.scrollspy("refresh")
-        }), a(".bs-docs-container [href=#]").click(function(a) {
-            a.preventDefault()
-        }), setTimeout(function() {
-            var b = a(".bs-docs-sidebar");
-            b.affix({
-                offset: {
-                    top: function() {
-                        var c = b.offset().top, d = parseInt(b.children(0).css("margin-top"), 10), e = a(".bs-docs-nav").height();
-                        return this.top = c - e - d
-                    },
-                    bottom: function() {
-                        return this.bottom = a(".bs-docs-footer").outerHeight(!0)
-                    }
-                }
-            }).on('affix.bs.affix', function () {
-                affixWidth = $('.bs-docs-nav').width();
-            }).on('affixed.bs.affix', function(){
-                $('.bs-docs-nav').width(affixWidth);
-            })
-        }, 100), setTimeout(function() {
-            a(".bs-top").affix()
-        }, 100)
-    })
-}(jQuery);
+/*!
+ * 文字数をカウント
+ * http://wataame.sumomo.ne.jp/archives/2589
+**/
+$(function(){
+    $('.textCount').bind('keyup',function(){
+        var thisValueLength = $(this).val().replace(/\s+/g,'').length;
+        $('.textCountNum').html(thisValueLength);
+    });
+});
 
 
+$(function(){
+
+    $('#masonry-wrapper').imagesLoaded( function(){
+        $('#masonry-wrapper').masonry({itemSelector : '.masonry-item'});
+        $('.masonry-item').biggerlink();
+    });
+
+    $('#heightline-wrapper').imagesLoaded( function(){
+        $('.heightline-item').heightLine();
+        $('.heightline-item').biggerlink();
+    });
+
+    $('.box-heightline').heightLine();
+    $('.box-biggerlink').biggerlink();
+
+    // Tooltip
+    $('.btn-tooltip').tooltip();
+    $('.btn-group [title]').tooltip({
+        container: 'body'
+    });
+
+    // Scrollspy
+    var $window = $(window);
+    var $body   = $(document.body);
+
+    $body.scrollspy({
+        target: '.sidebar-scrollspy'
+    });
+    $window.on('load', function () {
+        $body.scrollspy('refresh');
+    });
+
+    // Affix 
+    var affixWidth = $('.sidebar-affix').width();
+
+    $('.sidebar-affix').affix({
+        offset: {
+            top: $('#header').outerHeight(),
+            bottom: $('#footer').outerHeight()
+        }
+    }).on('affix.bs.affix', function() {
+        affixWidth = $('.sidebar-affix').width();
+    }).on('affixed.bs.affix', function() {
+        $('.sidebar-affix').width(affixWidth);
+    });
+});

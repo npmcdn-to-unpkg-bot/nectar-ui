@@ -5,9 +5,14 @@
 //
 // Layout
 // --------------------------------------------------
-.masthead {
+body {
+  position: relative;
+}
+
+#header {
     margin: 0 0 20px 0;
-    padding: 100px 0;
+    padding: 100px 0 0 0;
+    height: 300px;
     background: #000000 none;
     h1 {
         font-size: 64px;
@@ -20,26 +25,36 @@
     }
 }
 
+#footer {
+    margin: 20px 0 0 0;
+    padding: 20px 0 0 0;
+    background: #000000 none;
+    p {
+        color: #ffffff;
+    }
+}
 
 
-.bs-docs-sidebar.affix {
+.sidebar-affix.affix {
     position: static
 }
-.bs-docs-sidebar .nav .nav {
-    display: none;
+.sidebar-affix.affix-botom {
+    position: absolute;
 }
 @media (min-width:992px) {
-    .bs-docs-sidebar .nav>.active>ul {
+    .sidebar-affix .nav > .active > ul {
         display: block
     }
-    .bs-docs-sidebar.affix {
+    .sidebar-affix.affix {
         position: fixed;
         top: 20px
     }
-    .bs-docs-sidebar.affix-bottom {
+    .sidebar-affix.affix-bottom {
         position: absolute
     }
 }
+
+
 
 
 
