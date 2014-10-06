@@ -1,0 +1,36 @@
+//
+// Tables
+// --------------------------------------------------
+
+
+// Vertical
+// http://bootsnipp.com/snippets/featured/responsive-shopping-cart
+// -------------------------
+
+.table-vertical {
+}
+@media screen and (max-width: @screen-xs-max) {
+    .table-vertical {
+        thead {
+            display: none;
+        }
+        tbody {
+            tr td:first-child {
+                background: @gray-lighter;
+            }
+            td {
+                display: block;
+                &.td-th:before {
+                    content: attr(data-th);
+                    font-weight: bold;
+                    display: inline-block;
+                }
+            }
+        }
+        tfoot {
+            td {
+                display: block;
+            }
+        }
+    }
+}

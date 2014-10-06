@@ -6792,6 +6792,25 @@ a:hover img.img-hover {
 .lh-12 {
   line-height: 1.2 !important;
 }
+@media screen and (max-width: 767px) {
+  .table-vertical thead {
+    display: none;
+  }
+  .table-vertical tbody tr td:first-child {
+    background: #eeeeee;
+  }
+  .table-vertical tbody td {
+    display: block;
+  }
+  .table-vertical tbody td.td-th:before {
+    content: attr(data-th);
+    font-weight: bold;
+    display: inline-block;
+  }
+  .table-vertical tfoot td {
+    display: block;
+  }
+}
 .btn-round {
   border-radius: 17px;
 }
