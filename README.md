@@ -1,7 +1,7 @@
-Nectar UI for Bootstrap
+Nectar UI from Bootstrap
 =========
 
-Nectar UI for Bootstrap.
+Nectar UI from Bootstrap.
 
 
 # Plugins

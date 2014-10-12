@@ -7261,7 +7261,7 @@ a:hover img.img-hover {
   line-height: 1.0;
   color: #444444;
 }
-.item-list-tile p.item-list-tile-text {
+.item-list-tile p.item-list-tile-summary {
   margin: 5px 0 0 0;
   font-size: 11px;
   line-height: 1.2;
