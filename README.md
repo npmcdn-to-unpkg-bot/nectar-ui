@@ -1,4 +1,4 @@
-Nectar UI from Bootstrap
+Nectar UI
 =========
 
 Nectar UI from Bootstrap.
