@@ -6929,6 +6929,43 @@ a:hover img.img-hover {
 .item {
   word-wrap: break-word;
 }
+.item-userinfo {
+  margin: 0;
+  font-size: 11px;
+  line-height: 11px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+}
+.item-userinfo:before,
+.item-userinfo:after {
+  content: " ";
+  display: table;
+}
+.item-userinfo:after {
+  clear: both;
+}
+.item-userinfo:before,
+.item-userinfo:after {
+  content: " ";
+  display: table;
+}
+.item-userinfo:after {
+  clear: both;
+}
+.item-userinfo img {
+  margin-right: 5px;
+  float: left !important;
+  float: left;
+}
+.item-userinfo .item-userinfo-text {
+  overflow: hidden;
+}
+.item-userinfo .item-userinfo-text .item-userinfo-text-sub {
+  font-size: 10px;
+  color: #666666;
+}
 .item-list-stack .item-list-stack-inner {
   margin: 0 0 10px 0;
   padding: 0;
@@ -7187,12 +7224,9 @@ a:hover img.img-hover {
   position: absolute;
   top: 5px;
   left: 5px;
-}
-.item-list-tile .item-list-tile-image .item-list-tile-label p {
   margin: 0;
   padding: 0;
   color: #ffffff;
-  text-align: center;
   white-space: nowrap;
   text-overflow: ellipsis;
   -webkit-text-overflow: ellipsis;
@@ -7204,6 +7238,9 @@ a:hover img.img-hover {
   font-weight: bold;
   line-height: 1.0;
   background: #000000 none;
+}
+.item-list-tile .item-list-tile-header {
+  padding: 10px;
 }
 .item-list-tile .item-list-tile-main {
   padding: 10px;
@@ -7268,6 +7305,11 @@ a:hover img.img-hover {
   font-size: 11px;
   line-height: 1.2;
   color: #666666;
+}
+.item-list-tile .item-list-tile-user {
+  margin: 5px 0 0 0;
+  font-size: 11px;
+  line-height: 1.2;
 }
 @media (max-width: 767px) {
   .item-list-tile-list .item-list-tile-main {

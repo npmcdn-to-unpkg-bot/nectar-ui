@@ -21,7 +21,7 @@
         margin-right: 2px;
     }
 
-    // 囲い
+    // 画像
     .item-list-tile-image {
         position: relative;
         margin: 0;
@@ -29,17 +29,14 @@
             position: absolute;
             top: 5px;
             left: 5px;
-            p {
-                margin: 0;
-                padding: 0;
-                color: #ffffff;
-                text-align: center;
-                // 省略
-                white-space: nowrap;
-                text-overflow: ellipsis;
-                -webkit-text-overflow: ellipsis; 
-                -o-text-overflow: ellipsis;
-            }
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            // 省略
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -webkit-text-overflow: ellipsis; 
+            -o-text-overflow: ellipsis;
         }
         .item-list-tile-label-text {
             padding: 2px 5px;
@@ -48,6 +45,11 @@
             line-height: 1.0;
             background: #000000 none;
         }
+    }
+
+    // レイアウト
+    .item-list-tile-header {
+        padding: 10px;
     }
     .item-list-tile-main {
         padding: 10px;
@@ -105,7 +107,9 @@
     }
     // ユーザー
     .item-list-tile-user {
-        
+        margin: 5px 0 0 0;
+        font-size: 11px;
+        line-height: 1.2;
     }
 }
 @media (max-width: @screen-xs-max) {

@@ -5,3 +5,29 @@
 .item {
     word-wrap: break-word;
 }
+
+
+// ユーザー情報
+// -------------------------
+.item-userinfo {
+    margin: 0;
+    font-size: 11px;
+    line-height: 11px;
+    // 省略
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis; 
+    -o-text-overflow: ellipsis;
+    .clearfix();
+    img {
+        margin-right: 5px;
+        .pull-left();
+    }
+    .item-userinfo-text {
+        overflow: hidden;
+        .item-userinfo-text-sub {
+            font-size: 10px;
+            color: #666666;
+        }
+    }
+}

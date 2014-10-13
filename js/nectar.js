@@ -38,7 +38,8 @@ $(function(){
     });
 
     $('#heightline-wrapper').imagesLoaded(function(){
-        $('.heightline-item-list-tile-main').heightLine();
+        $('.heightline-item-list-tile-height').heightLine();
+        $('.heightline-item-list-tile-footer').heightLine();
         $('.heightline-item').biggerlink();
     });
 
