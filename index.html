@@ -28,87 +28,11 @@
         </header>
 
 
-
-    <div id="myCarousel" class="carousel slide">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for Slides -->
-        <div class="carousel-inner">
-            <div class="item active">
-                <!-- Set the first background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide One');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 1</h2>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the second background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Two');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 2</h2>
-                </div>
-            </div>
-            <div class="item">
-                <!-- Set the third background image using inline CSS below. -->
-                <div class="fill" style="background-image:url('http://placehold.it/1900x1080&text=Slide Three');"></div>
-                <div class="carousel-caption">
-                    <h2>Caption 3</h2>
-                </div>
-            </div>
-        </div>
-
-        <!-- Controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="icon-prev"></span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="icon-next"></span>
-        </a>
-
-    </div>
-<style>
-.carousel {
-    height: 50%;
-}
-
-.item,
-.active,
-.carousel-inner {
-    height: 100%;
-}
-
-/* Background images are set within the HTML using inline CSS, not here */
-
-.fill {
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
-
-footer {
-    margin: 50px 0;
-}
-</style>
-
-
-
-
-
-
         <div class="content-wrapper">
-            <div class="container bs-docs-container">
+            <div class="container">
 
                 <div class="wrapper">
-                    <div id="main" class="content-10-main">
+                    <div id="main" class="content-12-main">
 
 
                         <section id="section-color-palette" class="section-demo">
@@ -854,45 +778,49 @@ footer {
                                     <h3>List Tile</h3>
 
     <div class="row">
-        <div id="masonry-wrapper">
+        <div id="heightline-wrapper">
 
-            <div class="col-xs-12 col-sm-4 col-md-3 masonry-item item item-list-tile">
+            <div class="col-xs-6 col-sm-4 col-md-3 heightline-item item item-list-tile">
                 <div class="item-list-tile-inner">
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="item-list-tile-height">
-                                <div class="item-list-tile-header">
-                                    <p>
-                                        .item-list-tile-header
-                                    </p>
-                                </div>
-                                <div class="item-list-tile-image">
-                                    <div class="item-list-tile-label">
+                            <div class="heightline-item-list-tile-height">
+                                <div class="item-list-tile-height">
+                                    <div class="item-list-tile-header">
                                         <p>
-                                            .item-list-tile-label
+                                            .item-list-tile-header
                                         </p>
                                     </div>
-                                    <img src="http://placehold.it/640x640/dddddd/ffffff" class="img-responsive" alt="">
-                                </div>
-                                <div class="item-list-tile-main">
-                                    <p class="item-list-tile-data">
-                                        .item-list-tile-data
-                                    </p>
-                                    <div class="item-list-tile-title">
-                                        <h4>
-                                            <a href="#">
-                                                .item-list-tile-title
-                                            </a>
-                                        </h4>
+                                    <div class="item-list-tile-image">
+                                        <div class="item-list-tile-label">
+                                            <p>
+                                                .item-list-tile-label
+                                            </p>
+                                        </div>
+                                        <img src="http://placehold.it/640x640/dddddd/ffffff" class="img-responsive" alt="">
                                     </div>
-                                    <p class="item-list-tile-summary">
-                                        .item-list-tile-summary
-                                    </p>
-                                    <ul class="item-list-tag">
-                                        <li>.item-list-tag</li>
-                                    </ul>
-                                    <div class="item-list-tile-user">
-                                        .item-list-tile-user
+                                    <div class="item-list-tile-main">
+                                        <p class="item-list-tile-data">
+                                            .item-list-tile-data
+                                        </p>
+                                        <div class="item-list-tile-title">
+                                            <h4>
+                                                <a href="#">
+                                                    .item-list-tile-title
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <p class="item-list-tile-summary">
+                                            .item-list-tile-summary
+                                        </p>
+                                        <ul class="item-list-tag">
+                                            <li>.item-list-tag</li>
+                                        </ul>
+                                    </div>
+                                    <div class="item-list-tile-sub">
+                                        <p class="item-userinfo">
+                                            .item-list-tile-user
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -907,7 +835,7 @@ footer {
             </div><!-- /.item-list-tile -->
 
 
-        </div><!-- /#masonry-wrapper -->
+        </div><!-- /#heightline-wrapper -->
     </div><!-- /.row -->
 
 
@@ -919,19 +847,7 @@ footer {
                         <hr>
 
 
-                    </div><!-- /.content-8-main -->
-                    <div id="sidebar" class="content-10-sidebar">
-                        <nav class="sidebar-scrollspy sidebar-affix" data-spy="affix">
-                            <ul class="nav nav-pills nav-stacked" role="tablist">
-                                <li><a href="#section-color-palette" class="list-group-item">Color Palette</a></li>
-                                <li><a href="#section-mixins" class="list-group-item">Mixins</a></li>
-                                <li><a href="#section-tables" class="list-group-item">Tables</a></li>
-                                <li><a href="#section-buttons" class="list-group-item">Buttons</a></li>
-                                <li><a href="#section-balloons" class="list-group-item">Balloons</a></li>
-                                <li><a href="#section-items" class="list-group-item">Items</a></li>
-                            </ul>
-                        </nav>
-                    </div>
+                    </div><!-- /.content-12-main -->
                 </div><!-- /.wrapper -->
 
         </div><!-- /.content-wrapper -->

@@ -5899,6 +5899,8 @@ button.close {
 .panel-body:after,
 .modal-footer:before,
 .modal-footer:after,
+.container:before,
+.container:after,
 .wrapper:before,
 .wrapper:after {
   content: " ";
@@ -5919,6 +5921,7 @@ button.close {
 .pager:after,
 .panel-body:after,
 .modal-footer:after,
+.container:after,
 .wrapper:after {
   clear: both;
 }
@@ -6177,6 +6180,12 @@ body {
 }
 .content-wrapper {
   margin: 0 0;
+}
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .wrapper {
   margin-left: -10px;
@@ -6932,7 +6941,7 @@ a:hover img.img-hover {
 .item-userinfo {
   margin: 0;
   font-size: 11px;
-  line-height: 11px;
+  line-height: 12px;
   white-space: nowrap;
   text-overflow: ellipsis;
   -webkit-text-overflow: ellipsis;
@@ -7212,6 +7221,7 @@ a:hover img.img-hover {
   background: #e1edf7;
 }
 .item-list-tile span.glyphicon,
+.item-list-tile i.fa,
 .item-list-tile span.tsicon {
   color: #cccccc;
   margin-right: 2px;
@@ -7244,6 +7254,10 @@ a:hover img.img-hover {
 }
 .item-list-tile .item-list-tile-main {
   padding: 10px;
+}
+.item-list-tile .item-list-tile-sub {
+  padding: 10px;
+  border-top: 1px solid #e5e5e5;
 }
 .item-list-tile .item-list-tile-footer {
   padding: 10px;
@@ -7294,33 +7308,23 @@ a:hover img.img-hover {
   color: #444444;
 }
 .item-list-tile .item-list-tile-title p {
-  margin: 0 0 2px 0;
+  margin: 0;
   padding: 0;
   font-size: 10px;
   line-height: 1.0;
-  color: #444444;
+  color: #888888;
+}
+.item-list-tile .item-list-tile-title p.item-list-tile-title-before {
+  margin-bottom: 2px;
+}
+.item-list-tile .item-list-tile-title p.item-list-tile-title-after {
+  margin-top: 2px;
 }
 .item-list-tile p.item-list-tile-summary {
   margin: 5px 0 0 0;
   font-size: 11px;
   line-height: 1.2;
   color: #666666;
-}
-.item-list-tile .item-list-tile-user {
-  margin: 5px 0 0 0;
-  font-size: 11px;
-  line-height: 1.2;
-}
-@media (max-width: 767px) {
-  .item-list-tile-list .item-list-tile-main {
-    padding-left: 0;
-  }
-  .item-list-tile-list .item-list-tile-footer {
-    margin-right: 10px;
-    padding-right: 0;
-    padding-left: 0;
-    background: transparent;
-  }
 }
 /*!
  *  Font Awesome 4.2.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -9019,24 +9023,6 @@ body {
 }
 #footer p {
   color: #ffffff;
-}
-.sidebar-affix.affix {
-  position: static;
-}
-.sidebar-affix.affix-botom {
-  position: absolute;
-}
-@media (min-width: 992px) {
-  .sidebar-affix .nav > .active > ul {
-    display: block;
-  }
-  .sidebar-affix.affix {
-    position: fixed;
-    top: 20px;
-  }
-  .sidebar-affix.affix-bottom {
-    position: absolute;
-  }
 }
 h2 {
   font-size: 32px;
