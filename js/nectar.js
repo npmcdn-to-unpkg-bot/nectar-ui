@@ -1,3 +1,16 @@
+/*!
+ * Nectar UI
+ * http://hncm.jp/
+ * 
+ * v2014-10-15
+ */
+
+// @codekit-prepend "../assets/imagesloaded.pkgd.min.js";
+// @codekit-prepend "../assets/masonry.pkgd.min.js";
+// @codekit-prepend "../assets/jquery.heightLine.js";
+// @codekit-prepend "../assets/jquery.biggerlink.min.js"; 
+// @codekit-prepend "../assets/gmap3.min.js"; 
+
 
 /*!
  * テキストボックス内で改行を無効にする
@@ -38,6 +51,13 @@ $(function(){
     });
 
     $('#heightline-wrapper').imagesLoaded(function(){
+        $('.heightline-item-list-stack-header').heightLine();
+        $('.heightline-item-list-stack-height').heightLine();
+        $('.heightline-item-list-stack-footer').heightLine();
+        $('.heightline-item-list-photo-header').heightLine({minWidth:480});
+        $('.heightline-item-list-photo-height').heightLine({minWidth:480});
+        $('.heightline-item-list-photo-footer').heightLine({minWidth:480});
+        $('.heightline-item-list-tile-header').heightLine();
         $('.heightline-item-list-tile-height').heightLine();
         $('.heightline-item-list-tile-footer').heightLine();
         $('.heightline-item').biggerlink();
@@ -52,4 +72,8 @@ $(function(){
         container: 'body'
     });
 
+    // Carousel
+    $('.carousel').carousel({
+        interval: 5000
+    });
 });

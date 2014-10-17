@@ -3,8 +3,37 @@
 // --------------------------------------------------
 
 
+
+// 共通
+// -------------------------
 .item {
     word-wrap: break-word;
+
+    // アイコン
+    span.glyphicon, i.fa {
+        color: @item-color-icon;
+        margin-right: 2px;
+    }
+
+}
+
+
+
+
+
+// タグ
+// -------------------------
+ul.item-tag {
+    margin: 0;
+    margin-bottom: @line-height-computed;
+    .list-inline();
+    li {
+        margin: 0 5px 0 0;
+        padding: 2px 5px;
+        font-size: 11px;
+        line-height: 1.0;
+        border: 1px solid @item-color-border;
+    }
 }
 
 
@@ -30,5 +59,131 @@
             font-size: 10px;
             color: #666666;
         }
+    }
+}
+
+
+
+// リスト共通
+// -------------------------
+.item-list-stack,
+.item-list-photo,
+.item-list-tile {
+
+    // エレメント
+    p, ul, dl, table {
+        margin: 5px 0 0 0;
+    }
+
+    // デザイン
+    .item-list-stack-inner,
+    .item-list-photo-inner,
+    .item-list-tile-inner {
+        margin: 0 0 10px 0;
+        padding: 0;
+        background: #ffffff none;
+        border-radius: 2px;
+        .box-border();
+    }
+    // マウスオーバー
+    &.bl-hover .item-list-stack-inner,
+    &.bl-hover .item-list-photo-inner,
+    &.bl-hover .item-list-tile-inner {
+        background: fadeout(@link-color, 80%);
+    }
+    &.bl-hover .item-list-stack-image,
+    &.bl-hover .item-list-photo-image,
+    &.bl-hover .item-list-tile-image {
+        .opacity(0.6);
+    }
+
+
+    // レイアウト
+
+
+    // 画像
+    .item-list-stack-image,
+    .item-list-photo-image,
+    .item-list-tile-image {
+        position: relative;
+        margin: 0;
+        .item-list-stack-label,
+        .item-list-photo-label,
+        .item-list-tile-label {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            margin: 0;
+            padding: 0;
+            color: #ffffff;
+            // 省略
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            -webkit-text-overflow: ellipsis; 
+            -o-text-overflow: ellipsis;
+        }
+        .item-list-stack-label-text,
+        .item-list-photo-label-text,
+        .item-list-tile-label-text {
+            padding: 2px 5px;
+            font-size: 11px;
+            font-weight: bold;
+            line-height: 1.0;
+            background: #000000 none;
+        }
+    }
+
+    // データ
+    .item-list-stack-data,
+    .item-list-photo-data,
+    .item-list-tile-data {
+        margin: 0 0 5px 0;
+        font-size: 10px;
+        line-height: 1.2;
+        color: @item-color-text-light;
+        text-align: right;
+    }
+    // タイトル
+    .item-list-stack-title,
+    .item-list-photo-title,
+    .item-list-tile-title {
+        margin: 0 0 0 0;
+        padding: 0;
+        .clearfix();
+        h4 {
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            line-height: 1.0;
+            font-weight: bold;
+            color: #444444;
+        }
+        p {
+            margin: 0;
+            padding: 0;
+            font-size: 10px;
+            line-height: 1.0;
+            color: @item-color-text-light;
+            &.item-list-stack-title-before,
+            &.item-list-photo-title-before,
+            &.item-list-tile-title-before {
+                margin-bottom: 2px;
+            }
+            &.item-list-stack-title-after,
+            &.item-list-photo-title-after,
+            &.item-list-tile-title-after {
+                margin-top: 2px;
+            }
+        }
+    }
+    // 概要
+    .item-list-stack-text,
+    .item-list-photo-summary,
+    .item-list-tile-summary {
+        margin: 5px 0 0 0;
+        font-size: 11px;
+        line-height: 1.2;
+        color: @item-color-text;
     }
 }

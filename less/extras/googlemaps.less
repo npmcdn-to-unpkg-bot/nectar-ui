@@ -1,0 +1,69 @@
+//
+// Google Maps
+// --------------------------------------------------
+.googlemaps-wrapper {
+    margin: 0;
+    margin-bottom: @line-height-computed;
+}
+
+
+//
+// Google Maps Single
+// --------------------------------------------------
+.googlemaps-single {
+    width: 100%;
+    height: 400px;
+    iframe {
+    }
+}
+
+.googlemaps-link {
+    a {
+        padding: 5px 10px;
+        border-radius: 0;
+    }
+}
+
+
+
+
+//
+// Google Maps Embed
+// http://syncer.jp/google-maps-smartphone-view-easily-viewable
+// --------------------------------------------------
+.googlemaps-embed {
+    position: relative;
+    padding-bottom: 50%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.googlemaps-size-changer-syncer {
+    width: 100%;
+    margin: 0;
+    padding: 5px 5px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: #ffffff;
+    background: @link-color none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    transition: all 0.4s;
+}
+

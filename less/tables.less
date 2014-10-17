@@ -34,3 +34,84 @@
         }
     }
 }
+
+
+//
+// Responsive Data Table
+// --------------------------------------------------
+@dlResponsiveBack: @table-bg-accent;
+@dlResponsiveBorder: @table-border-color;
+
+.dl-responsive {
+    margin-bottom: 10px;
+    .dl-responsive-header {
+        display: none;
+    }
+    .dl-responsive-row {
+        dl {
+            margin-top: 0;
+            margin-bottom: 0;
+            dt, dd {
+                padding: 5px 5px;
+                font-size: 12px;
+                line-height: 1.2;
+                border-top: 1px solid @dlResponsiveBorder;
+            }
+            dt {
+                background: @dlResponsiveBack none;
+            }
+        }
+    }
+}
+
+@media (min-width: @screen-xs-min) {
+    .dl-responsive {
+        display: table;
+        width: 100%;
+        border-bottom: 1px solid @dlResponsiveBorder;
+        border-left: 1px solid @dlResponsiveBorder;
+        .dl-responsive-header {
+            display: table-header-group;
+            ol {
+                display: table-row;
+                margin: 0;
+                li {
+                    display: table-cell;
+                    padding: 5px 10px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    text-align: center;
+                    line-height: 1.2;
+                    word-wrap: break-word;
+                    word-break: break-word;
+                    background: @dlResponsiveBack none;
+                    border-top: 1px solid @dlResponsiveBorder;
+                    border-right: 1px solid @dlResponsiveBorder;
+                }
+            }
+        }
+        .dl-responsive-row {
+            display: table-row-group;
+            dl {
+                display: table-row;
+                margin: 0;
+                dt, dd {
+                    display: table-cell;
+                    padding: 5px 10px;
+                    font-size: 12px;
+                    line-height: 1.2;
+                    word-wrap: break-word;
+                    word-break: break-word;
+                    border-top: 1px solid @dlResponsiveBorder;
+                    border-right: 1px solid @dlResponsiveBorder;
+                }
+                dt {
+                    width: 120px;
+                    background: @dlResponsiveBack none;
+                }
+            }
+        }
+    }
+}
+
+

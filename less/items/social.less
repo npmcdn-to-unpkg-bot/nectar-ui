@@ -1,0 +1,45 @@
+//
+// Item Social
+// --------------------------------------------------
+
+
+
+//
+// ボタン
+// --------------------------------------------------
+#social-button {
+    margin-bottom: @line-height-computed;
+    .btn {
+        font-size: 16px;
+        line-height: 1.0;
+        &:hover,
+        &:focus {
+        }
+        span.glyphicon, i.fa, span.tsicon {
+            margin: 0;
+            color: #ffffff;
+        }
+    }
+    // Color
+    .btn-email {
+        .button-variant(#ffffff, @link-color, @link-color);
+    }
+    .btn-facebook {
+        .button-variant(#ffffff, @social-color-facebook, @social-color-facebook);
+    }
+    .btn-twitter {
+        .button-variant(#ffffff, @social-color-twitter, @social-color-twitter);
+    }
+    .btn-googleplus {
+        .button-variant(#ffffff, @social-color-googleplus, @social-color-googleplus);
+    }
+    .btn-tumblr {
+        .button-variant(#ffffff, @social-color-tumblr, @social-color-tumblr);
+    }
+    .btn-pinterest {
+        .button-variant(#ffffff, @social-color-pinterest, @social-color-pinterest);
+    }
+    .btn-pocket {
+        .button-variant(#ffffff, @social-color-pocket, @social-color-pocket);
+    }
+}
