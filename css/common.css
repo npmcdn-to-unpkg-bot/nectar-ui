@@ -9450,7 +9450,7 @@ fieldset[disabled] #social-button .btn-pocket.active {
 .item-list-stack .item-list-stack-header {
   padding: 10px 10px 10px 0;
 }
-.item-list-stack .item-list-stack-main {
+.item-list-stack .item-list-stack-body {
   padding: 10px 10px 10px 0;
 }
 .item-list-stack .item-list-stack-sub {
@@ -9475,7 +9475,7 @@ fieldset[disabled] #social-button .btn-pocket.active {
 .item-list-photo .item-list-photo-header {
   padding: 10px;
 }
-.item-list-photo .item-list-photo-main {
+.item-list-photo .item-list-photo-body {
   padding: 10px;
 }
 .item-list-photo .item-list-photo-sub {
@@ -9498,7 +9498,7 @@ fieldset[disabled] #social-button .btn-pocket.active {
   color: #555555;
 }
 @media (max-width: 767px) {
-  .item-list-photo .item-list-photo-main {
+  .item-list-photo .item-list-photo-body {
     padding-left: 0;
   }
   .item-list-photo .item-list-photo-sub {
@@ -9508,7 +9508,7 @@ fieldset[disabled] #social-button .btn-pocket.active {
 .item-list-tile .item-list-tile-header {
   padding: 10px;
 }
-.item-list-tile .item-list-tile-main {
+.item-list-tile .item-list-tile-body {
   padding: 10px;
 }
 .item-list-tile .item-list-tile-sub {
