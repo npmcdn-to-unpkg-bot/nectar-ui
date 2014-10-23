@@ -9,6 +9,7 @@
 // @codekit-prepend "../assets/masonry.pkgd.min.js";
 // @codekit-prepend "../assets/jquery.heightLine.js";
 // @codekit-prepend "../assets/jquery.biggerlink.min.js"; 
+// @codekit-prepend "../assets/OwlCarousel2/js/owl.carousel.min.js"; 
 // @codekit-prepend "../assets/gmap3.min.js"; 
 
 
