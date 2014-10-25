@@ -4,16 +4,13 @@
 
 // もっと見る
 .text-more {
+    margin-bottom: @line-height-computed;
     font-size: 12px;
-    line-height: 1.0;
+    line-height: @line-height-computed;
     .clearfix();
-    // アイコン
-    span.glyphicon, i.fa {
-        margin-right: 2px;
-    }
     a {
         display: block;
-        padding: 10px 10px;
+        padding: (@line-height-computed / 2);
         text-align: center;
         text-decoration: none;
         color: #ffffff;
@@ -23,6 +20,13 @@
             color: #ffffff;
             background: @link-hover-color none;
         }
+    }
+    // アイコン
+    span.glyphicon, i.fa {
+        position: relative;
+        top: 4px;
+        margin-right: 5px;
+        font-size: 140%;
     }
 }
 

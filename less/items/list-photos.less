@@ -64,8 +64,11 @@
     .item-list-photo-summary {
     }
 }
-@media screen and (max-width: @screen-xs-max) {
+@media (max-width: @grid-float-breakpoint-max) {
     .item-list-photo {
+        // デザイン
+        .item-list-photo-inner {
+        }
         // レイアウト
         .item-list-photo-header {
         }
@@ -76,6 +79,7 @@
             padding-left: 0;
         }
         .item-list-photo-footer {
+            margin-left: -@grid-gutter-width;
         }
     }
 }

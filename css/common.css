@@ -8403,8 +8403,9 @@ a:hover img.img-hover {
   line-height: 1.2 !important;
 }
 .text-more {
+  margin-bottom: 20px;
   font-size: 12px;
-  line-height: 1.0;
+  line-height: 20px;
 }
 .text-more:before,
 .text-more:after {
@@ -8421,14 +8422,10 @@ a:hover img.img-hover {
 }
 .text-more:after {
   clear: both;
-}
-.text-more span.glyphicon,
-.text-more i.fa {
-  margin-right: 2px;
 }
 .text-more a {
   display: block;
-  padding: 10px 10px;
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   color: #ffffff;
@@ -8438,6 +8435,13 @@ a:hover img.img-hover {
 .text-more a:hover {
   color: #ffffff;
   background: #2a6496 none;
+}
+.text-more span.glyphicon,
+.text-more i.fa {
+  position: relative;
+  top: 4px;
+  margin-right: 5px;
+  font-size: 140%;
 }
 .text-overflow {
   overflow: hidden;
@@ -8777,6 +8781,17 @@ ul.item-tag li {
   position: relative;
   margin: 0;
 }
+.item-list-stack .item-list-stack-image img,
+.item-list-photo .item-list-stack-image img,
+.item-list-tile .item-list-stack-image img,
+.item-list-stack .item-list-photo-image img,
+.item-list-photo .item-list-photo-image img,
+.item-list-tile .item-list-photo-image img,
+.item-list-stack .item-list-tile-image img,
+.item-list-photo .item-list-tile-image img,
+.item-list-tile .item-list-tile-image img {
+  z-index: 1;
+}
 .item-list-stack .item-list-stack-image .item-list-stack-label,
 .item-list-photo .item-list-stack-image .item-list-stack-label,
 .item-list-tile .item-list-stack-image .item-list-stack-label,
@@ -8805,42 +8820,94 @@ ul.item-tag li {
 .item-list-photo .item-list-tile-image .item-list-tile-label,
 .item-list-tile .item-list-tile-image .item-list-tile-label {
   position: absolute;
+  z-index: 2;
   top: 5px;
   left: 5px;
   margin: 0;
   padding: 0;
   color: #ffffff;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
 }
-.item-list-stack .item-list-stack-image .item-list-stack-label-text,
-.item-list-photo .item-list-stack-image .item-list-stack-label-text,
-.item-list-tile .item-list-stack-image .item-list-stack-label-text,
-.item-list-stack .item-list-photo-image .item-list-stack-label-text,
-.item-list-photo .item-list-photo-image .item-list-stack-label-text,
-.item-list-tile .item-list-photo-image .item-list-stack-label-text,
-.item-list-stack .item-list-tile-image .item-list-stack-label-text,
-.item-list-photo .item-list-tile-image .item-list-stack-label-text,
-.item-list-tile .item-list-tile-image .item-list-stack-label-text,
-.item-list-stack .item-list-stack-image .item-list-photo-label-text,
-.item-list-photo .item-list-stack-image .item-list-photo-label-text,
-.item-list-tile .item-list-stack-image .item-list-photo-label-text,
-.item-list-stack .item-list-photo-image .item-list-photo-label-text,
-.item-list-photo .item-list-photo-image .item-list-photo-label-text,
-.item-list-tile .item-list-photo-image .item-list-photo-label-text,
-.item-list-stack .item-list-tile-image .item-list-photo-label-text,
-.item-list-photo .item-list-tile-image .item-list-photo-label-text,
-.item-list-tile .item-list-tile-image .item-list-photo-label-text,
-.item-list-stack .item-list-stack-image .item-list-tile-label-text,
-.item-list-photo .item-list-stack-image .item-list-tile-label-text,
-.item-list-tile .item-list-stack-image .item-list-tile-label-text,
-.item-list-stack .item-list-photo-image .item-list-tile-label-text,
-.item-list-photo .item-list-photo-image .item-list-tile-label-text,
-.item-list-tile .item-list-photo-image .item-list-tile-label-text,
-.item-list-stack .item-list-tile-image .item-list-tile-label-text,
-.item-list-photo .item-list-tile-image .item-list-tile-label-text,
-.item-list-tile .item-list-tile-image .item-list-tile-label-text {
+.item-list-stack .item-list-stack-image .item-list-stack-label .item-list-stack-label-text,
+.item-list-photo .item-list-stack-image .item-list-stack-label .item-list-stack-label-text,
+.item-list-tile .item-list-stack-image .item-list-stack-label .item-list-stack-label-text,
+.item-list-stack .item-list-photo-image .item-list-stack-label .item-list-stack-label-text,
+.item-list-photo .item-list-photo-image .item-list-stack-label .item-list-stack-label-text,
+.item-list-tile .item-list-photo-image .item-list-stack-label .item-list-stack-label-text,
+.item-list-stack .item-list-tile-image .item-list-stack-label .item-list-stack-label-text,
+.item-list-photo .item-list-tile-image .item-list-stack-label .item-list-stack-label-text,
+.item-list-tile .item-list-tile-image .item-list-stack-label .item-list-stack-label-text,
+.item-list-stack .item-list-stack-image .item-list-photo-label .item-list-stack-label-text,
+.item-list-photo .item-list-stack-image .item-list-photo-label .item-list-stack-label-text,
+.item-list-tile .item-list-stack-image .item-list-photo-label .item-list-stack-label-text,
+.item-list-stack .item-list-photo-image .item-list-photo-label .item-list-stack-label-text,
+.item-list-photo .item-list-photo-image .item-list-photo-label .item-list-stack-label-text,
+.item-list-tile .item-list-photo-image .item-list-photo-label .item-list-stack-label-text,
+.item-list-stack .item-list-tile-image .item-list-photo-label .item-list-stack-label-text,
+.item-list-photo .item-list-tile-image .item-list-photo-label .item-list-stack-label-text,
+.item-list-tile .item-list-tile-image .item-list-photo-label .item-list-stack-label-text,
+.item-list-stack .item-list-stack-image .item-list-tile-label .item-list-stack-label-text,
+.item-list-photo .item-list-stack-image .item-list-tile-label .item-list-stack-label-text,
+.item-list-tile .item-list-stack-image .item-list-tile-label .item-list-stack-label-text,
+.item-list-stack .item-list-photo-image .item-list-tile-label .item-list-stack-label-text,
+.item-list-photo .item-list-photo-image .item-list-tile-label .item-list-stack-label-text,
+.item-list-tile .item-list-photo-image .item-list-tile-label .item-list-stack-label-text,
+.item-list-stack .item-list-tile-image .item-list-tile-label .item-list-stack-label-text,
+.item-list-photo .item-list-tile-image .item-list-tile-label .item-list-stack-label-text,
+.item-list-tile .item-list-tile-image .item-list-tile-label .item-list-stack-label-text,
+.item-list-stack .item-list-stack-image .item-list-stack-label .item-list-photo-label-text,
+.item-list-photo .item-list-stack-image .item-list-stack-label .item-list-photo-label-text,
+.item-list-tile .item-list-stack-image .item-list-stack-label .item-list-photo-label-text,
+.item-list-stack .item-list-photo-image .item-list-stack-label .item-list-photo-label-text,
+.item-list-photo .item-list-photo-image .item-list-stack-label .item-list-photo-label-text,
+.item-list-tile .item-list-photo-image .item-list-stack-label .item-list-photo-label-text,
+.item-list-stack .item-list-tile-image .item-list-stack-label .item-list-photo-label-text,
+.item-list-photo .item-list-tile-image .item-list-stack-label .item-list-photo-label-text,
+.item-list-tile .item-list-tile-image .item-list-stack-label .item-list-photo-label-text,
+.item-list-stack .item-list-stack-image .item-list-photo-label .item-list-photo-label-text,
+.item-list-photo .item-list-stack-image .item-list-photo-label .item-list-photo-label-text,
+.item-list-tile .item-list-stack-image .item-list-photo-label .item-list-photo-label-text,
+.item-list-stack .item-list-photo-image .item-list-photo-label .item-list-photo-label-text,
+.item-list-photo .item-list-photo-image .item-list-photo-label .item-list-photo-label-text,
+.item-list-tile .item-list-photo-image .item-list-photo-label .item-list-photo-label-text,
+.item-list-stack .item-list-tile-image .item-list-photo-label .item-list-photo-label-text,
+.item-list-photo .item-list-tile-image .item-list-photo-label .item-list-photo-label-text,
+.item-list-tile .item-list-tile-image .item-list-photo-label .item-list-photo-label-text,
+.item-list-stack .item-list-stack-image .item-list-tile-label .item-list-photo-label-text,
+.item-list-photo .item-list-stack-image .item-list-tile-label .item-list-photo-label-text,
+.item-list-tile .item-list-stack-image .item-list-tile-label .item-list-photo-label-text,
+.item-list-stack .item-list-photo-image .item-list-tile-label .item-list-photo-label-text,
+.item-list-photo .item-list-photo-image .item-list-tile-label .item-list-photo-label-text,
+.item-list-tile .item-list-photo-image .item-list-tile-label .item-list-photo-label-text,
+.item-list-stack .item-list-tile-image .item-list-tile-label .item-list-photo-label-text,
+.item-list-photo .item-list-tile-image .item-list-tile-label .item-list-photo-label-text,
+.item-list-tile .item-list-tile-image .item-list-tile-label .item-list-photo-label-text,
+.item-list-stack .item-list-stack-image .item-list-stack-label .item-list-tile-label-text,
+.item-list-photo .item-list-stack-image .item-list-stack-label .item-list-tile-label-text,
+.item-list-tile .item-list-stack-image .item-list-stack-label .item-list-tile-label-text,
+.item-list-stack .item-list-photo-image .item-list-stack-label .item-list-tile-label-text,
+.item-list-photo .item-list-photo-image .item-list-stack-label .item-list-tile-label-text,
+.item-list-tile .item-list-photo-image .item-list-stack-label .item-list-tile-label-text,
+.item-list-stack .item-list-tile-image .item-list-stack-label .item-list-tile-label-text,
+.item-list-photo .item-list-tile-image .item-list-stack-label .item-list-tile-label-text,
+.item-list-tile .item-list-tile-image .item-list-stack-label .item-list-tile-label-text,
+.item-list-stack .item-list-stack-image .item-list-photo-label .item-list-tile-label-text,
+.item-list-photo .item-list-stack-image .item-list-photo-label .item-list-tile-label-text,
+.item-list-tile .item-list-stack-image .item-list-photo-label .item-list-tile-label-text,
+.item-list-stack .item-list-photo-image .item-list-photo-label .item-list-tile-label-text,
+.item-list-photo .item-list-photo-image .item-list-photo-label .item-list-tile-label-text,
+.item-list-tile .item-list-photo-image .item-list-photo-label .item-list-tile-label-text,
+.item-list-stack .item-list-tile-image .item-list-photo-label .item-list-tile-label-text,
+.item-list-photo .item-list-tile-image .item-list-photo-label .item-list-tile-label-text,
+.item-list-tile .item-list-tile-image .item-list-photo-label .item-list-tile-label-text,
+.item-list-stack .item-list-stack-image .item-list-tile-label .item-list-tile-label-text,
+.item-list-photo .item-list-stack-image .item-list-tile-label .item-list-tile-label-text,
+.item-list-tile .item-list-stack-image .item-list-tile-label .item-list-tile-label-text,
+.item-list-stack .item-list-photo-image .item-list-tile-label .item-list-tile-label-text,
+.item-list-photo .item-list-photo-image .item-list-tile-label .item-list-tile-label-text,
+.item-list-tile .item-list-photo-image .item-list-tile-label .item-list-tile-label-text,
+.item-list-stack .item-list-tile-image .item-list-tile-label .item-list-tile-label-text,
+.item-list-photo .item-list-tile-image .item-list-tile-label .item-list-tile-label-text,
+.item-list-tile .item-list-tile-image .item-list-tile-label .item-list-tile-label-text {
   padding: 2px 5px;
   font-size: 11px;
   font-weight: bold;
@@ -9526,12 +9593,15 @@ fieldset[disabled] #social-button .btn-pocket.active {
   line-height: 1.2;
   color: #777777;
 }
-@media screen and (max-width: 767px) {
+@media (max-width: 767px) {
   .item-list-photo .item-list-photo-body {
     padding-left: 0;
   }
   .item-list-photo .item-list-photo-sub {
     padding-left: 0;
+  }
+  .item-list-photo .item-list-photo-footer {
+    margin-left: -10px;
   }
 }
 .item-list-tile .item-list-tile-header {

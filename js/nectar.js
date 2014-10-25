@@ -55,9 +55,9 @@ $(function(){
         $('.heightline-item-list-stack-header').heightLine();
         $('.heightline-item-list-stack-height').heightLine();
         $('.heightline-item-list-stack-footer').heightLine();
-        $('.heightline-item-list-photo-header').heightLine({minWidth:480});
-        $('.heightline-item-list-photo-height').heightLine({minWidth:480});
-        $('.heightline-item-list-photo-footer').heightLine({minWidth:480});
+        $('.heightline-item-list-photo-header').heightLine({minWidth:768});
+        $('.heightline-item-list-photo-height').heightLine({minWidth:768});
+        $('.heightline-item-list-photo-footer').heightLine({minWidth:768});
         $('.heightline-item-list-tile-header').heightLine();
         $('.heightline-item-list-tile-height').heightLine();
         $('.heightline-item-list-tile-footer').heightLine();
