@@ -8871,7 +8871,7 @@ ul.item-tag li {
 .item-list-stack .item-list-tile-title,
 .item-list-photo .item-list-tile-title,
 .item-list-tile .item-list-tile-title {
-  margin: 0 0 0 0;
+  margin: 0;
   padding: 0;
 }
 .item-list-stack .item-list-stack-title:before,
@@ -9410,9 +9410,29 @@ fieldset[disabled] #social-button .btn-pocket.active {
 .item-view .item-view-inner {
   margin: 0;
   margin-bottom: 20px;
+  padding: 0;
+  background: #ffffff none;
+  border-radius: 2px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0 0 2px;
+  box-shadow: rgba(0, 0, 0, 0.15) 0 0 2px;
+}
+.item-view .item-view-header {
+  padding: 20px;
+}
+.item-view .item-view-body {
+  padding: 20px;
+}
+.item-view .item-view-sub {
+  padding: 20px;
+  border-top: 1px solid #dddddd;
+}
+.item-view .item-view-footer {
+  padding: 20px;
+  background: #f9f9f9;
+  border-top: 1px solid #dddddd;
 }
 .item-view .item-view-title {
-  margin: 0 0 20px 0;
+  margin: 0;
   padding: 0;
 }
 .item-view .item-view-title:before,
@@ -9435,8 +9455,8 @@ fieldset[disabled] #social-button .btn-pocket.active {
   overflow: hidden;
   margin: 0;
   padding: 0;
-  font-size: 14px;
-  line-height: 1.0;
+  font-size: 24px;
+  line-height: 1.2;
   font-weight: bold;
   color: #444444;
 }
@@ -9448,19 +9468,22 @@ fieldset[disabled] #social-button .btn-pocket.active {
   color: #777777;
 }
 .item-view .item-view-title p.item-view-title-before {
-  margin-bottom: 2px;
+  margin-bottom: 5px;
 }
 .item-view .item-view-title p.item-view-title-after {
-  margin-top: 2px;
+  margin-top: 5px;
 }
 .item-list-stack .item-list-stack-header {
-  padding: 10px 10px 10px 0;
+  padding: 10px;
+  padding-left: 0;
 }
 .item-list-stack .item-list-stack-body {
-  padding: 10px 10px 10px 0;
+  padding: 10px;
+  padding-left: 0;
 }
 .item-list-stack .item-list-stack-sub {
-  padding: 10px 10px 10px 0;
+  padding: 10px;
+  padding-left: 0;
   border-top: 1px solid #dddddd;
 }
 .item-list-stack .item-list-stack-sub p {
@@ -9503,7 +9526,7 @@ fieldset[disabled] #social-button .btn-pocket.active {
   line-height: 1.2;
   color: #777777;
 }
-@media (max-width: 767px) {
+@media screen and (max-width: 767px) {
   .item-list-photo .item-list-photo-body {
     padding-left: 0;
   }
@@ -9558,6 +9581,11 @@ fieldset[disabled] #social-button .btn-pocket.active {
 .googlemaps-single {
   width: 100%;
   height: 400px;
+}
+@media screen and (max-width: 767px) {
+  .googlemaps-single {
+    height: 200px;
+  }
 }
 .googlemaps-link a {
   padding: 5px 10px;

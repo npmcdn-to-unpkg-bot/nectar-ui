@@ -13,20 +13,20 @@
 
     // レイアウト
     .item-list-photo-header {
-        padding: 10px;
+        padding: @item-list-padding;
     }
     .item-list-photo-body {
-        padding: 10px;
+        padding: @item-list-padding;
     }
     .item-list-photo-sub {
-        padding: 10px;
+        padding: @item-list-padding;
         border-top: 1px solid @item-color-border;
         p {
             margin: 0;
         }
     }
     .item-list-photo-footer {
-        padding: 10px;
+        padding: @item-list-padding;
         background: @item-color-back;
         border-top: 1px solid @item-color-border;
         p {
@@ -64,7 +64,7 @@
     .item-list-photo-summary {
     }
 }
-@media (max-width: @screen-xs-max) {
+@media screen and (max-width: @screen-xs-max) {
     .item-list-photo {
         // レイアウト
         .item-list-photo-header {

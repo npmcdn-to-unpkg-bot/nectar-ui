@@ -8,16 +8,27 @@
     .item-view-inner {
         margin: 0;
         margin-bottom: @line-height-computed;
+        padding: 0;
+        background: #ffffff none;
+        border-radius: 2px;
+        .box-border();
     }
 
     // レイアウト
     .item-view-header {
+        padding: @item-view-padding;
     }
     .item-view-body {
+        padding: @item-view-padding;
     }
     .item-view-sub {
+        padding: @item-view-padding;
+        border-top: 1px solid @item-color-border;
     }
     .item-view-footer {
+        padding: @item-view-padding;
+        background: @item-color-back;
+        border-top: 1px solid @item-color-border;
     }
 
     // 画像
@@ -33,15 +44,15 @@
     }
     // タイトル
     .item-view-title {
-        margin: 0 0 @line-height-computed 0;
+        margin: 0;
         padding: 0;
         .clearfix();
         h1 {
             overflow: hidden;
             margin: 0;
             padding: 0;
-            font-size: 14px;
-            line-height: 1.0;
+            font-size: 24px;
+            line-height: 1.2;
             font-weight: bold;
             color: #444444;
         }
@@ -52,10 +63,10 @@
             line-height: 1.0;
             color: @item-color-text-light;
             &.item-view-title-before {
-                margin-bottom: 2px;
+                margin-bottom: 5px;
             }
             &.item-view-title-after {
-                margin-top: 2px;
+                margin-top: 5px;
             }
         }
     }
