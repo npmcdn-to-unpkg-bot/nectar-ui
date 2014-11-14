@@ -1,0 +1,25 @@
+//
+// List group arrow
+// --------------------------------------------------
+
+
+.list-group-arrow {
+    a {
+        position: relative;
+        display: block;
+    }
+    a::after {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        display: block;
+        content: '';
+        width: 8px;
+        height: 8px;
+        margin-top: -4px;
+        border-top: 1px solid @list-group-arrow-border-color;
+        border-right: 1px solid @list-group-arrow-border-color;
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}

@@ -1,0 +1,25 @@
+//
+// Boxes
+// --------------------------------------------------
+
+// Box
+// -------------------------
+.box {
+    display: block;
+    width: auto;
+    min-height: 20px;
+    margin: 0 0 10px 0;
+    padding: 0;
+    background: transparent none;
+    overflow: visible;
+    .clearfix();
+}
+
+// http://css-tricks.com/spacing-the-bottom-of-modules/
+.box > *:last-child,
+.box > *:last-child > *:last-child,
+.box > *:last-child > *:last-child > *:last-child {
+    margin-bottom: 0;
+}
+
+
