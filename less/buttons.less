@@ -3,6 +3,15 @@
 // --------------------------------------------------
 
 
+// Alternate buttons
+// --------------------------------------------------
+
+.btn-light {
+  .button-variant(#ffffff; #ffffff; #ffffff);
+}
+
+
+
 // Rounded
 // http://bootsnipp.com/snippets/featured/rounded-buttons
 // -------------------------
@@ -21,6 +30,64 @@
     padding-left: 10px;
     padding-right: 10px;
 }
+
+
+// Sharp
+// -------------------------
+
+.btn-sharp {
+    border-radius: 0;
+}
+
+
+// Outline
+// -------------------------
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    border-width: 2px;
+    transition: all .5s;
+}
+
+.btn-outline.btn-default {
+    color: @btn-default-color;
+}
+.btn-outline.btn-primary {
+    color: @btn-primary-bg;
+}
+.btn-outline.btn-success {
+    color: @btn-success-bg;
+}
+.btn-outline.btn-info {
+    color: @btn-info-bg;
+}
+.btn-outline.btn-warning {
+    color: @btn-warning-bg;
+}
+.btn-outline.btn-danger {
+    color: @btn-danger-bg;
+}
+.btn-outline.btn-light {
+    color: #ffffff;
+}
+
+.btn-outline.btn-default:hover {
+    color: @btn-default-color;
+}
+.btn-outline.btn-light:hover {
+    color: @btn-default-color;
+}
+.btn-outline.btn-primary:hover,
+.btn-outline.btn-success:hover,
+.btn-outline.btn-info:hover,
+.btn-outline.btn-warning:hover,
+.btn-outline.btn-danger:hover {
+    color: #ffffff;
+}
+
+
+
 
 
 // Embossed
@@ -76,5 +143,19 @@
 }
 .btn-emboss.btn-danger {
     .button-emboss-variant(@btn-danger-shadow);
+}
+
+
+
+
+// Icon
+// -------------------------
+
+.btn-icon {
+    font-size: 12px;
+    line-height: 1.2;
+    span {
+        font-size: 24px;
+    }
 }
 

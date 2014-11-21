@@ -1,0 +1,20 @@
+//
+// Sections
+// --------------------------------------------------
+
+// Section
+// -------------------------
+.section-common {
+    min-height: 20px;
+    padding-top: @line-height-computed;
+    padding-bottom: @line-height-computed;
+}
+
+// http://css-tricks.com/spacing-the-bottom-of-modules/
+.section-common > *:last-child,
+.section-common > *:last-child > *:last-child,
+.section-common > *:last-child > *:last-child > *:last-child {
+    margin-bottom: 0;
+}
+
+
