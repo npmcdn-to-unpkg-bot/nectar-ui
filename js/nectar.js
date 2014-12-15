@@ -68,6 +68,8 @@ $(function(){
     $('.box-heightline').heightLine();
     $('.box-biggerlink').biggerlink();
 
+    $('a.smooth').smoothScroll();
+
     // Tooltip
     $('.btn-tooltip').tooltip();
     $('.btn-group [title]').tooltip({
