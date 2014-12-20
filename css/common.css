@@ -8630,6 +8630,7 @@ a:hover img.img-hover {
     content: attr(data-th);
     font-weight: bold;
     display: inline-block;
+    margin-right: 5px;
   }
   .table-vertical tfoot td {
     display: block;
