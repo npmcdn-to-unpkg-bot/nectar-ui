@@ -9972,6 +9972,17 @@ fieldset[disabled] #social-button .btn-pocket.active {
   background: #f9f9f9;
   border-top: 1px solid #dddddd;
 }
+.item-view .item-view-image {
+  width: 100%;
+  background: #000000 none;
+}
+.item-view .item-view-image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 .item-view-title {
   margin: 0;
   padding: 0;
