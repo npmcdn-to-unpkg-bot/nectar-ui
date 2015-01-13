@@ -26,17 +26,17 @@ Nectar UI from Bootstrap.
 
 [http://www.ollicle.com/projects/jquery/biggerlink/](http://www.ollicle.com/projects/jquery/biggerlink/)
 
-### 
+### Smooth Scroll Plugin
 
-[]()
+[https://github.com/kswedberg/jquery-smooth-scroll](https://github.com/kswedberg/jquery-smooth-scroll)
 
-### 
+### OwlCarousel2
 
-[]()
+[http://www.owlcarousel.owlgraphic.com](http://www.owlcarousel.owlgraphic.com)
 
-### 
+### Gmap3
 
-[]()
+[http://gmap3.net](http://gmap3.net)
 
 ### 
 
