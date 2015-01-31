@@ -8919,7 +8919,8 @@ fieldset[disabled] .btn-light.active {
   font-size: 12px;
   line-height: 1.2;
 }
-.btn-icon span {
+.btn-icon span,
+.btn-icon i {
   font-size: 24px;
 }
 ul.nav-wizard {
