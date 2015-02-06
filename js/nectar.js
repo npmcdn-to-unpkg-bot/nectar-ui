@@ -2,7 +2,7 @@
  * Nectar UI
  * http://hncm.jp/
  * 
- * v2015-01-13
+ * v2015-02-06
  */
 
 // @codekit-prepend "../assets/imagesloaded.pkgd.min.js";
@@ -11,6 +11,8 @@
 // @codekit-prepend "../assets/jquery.biggerlink.min.js"; 
 // @codekit-prepend "../assets/jquery.smooth-scroll.js"; 
 // @codekit-prepend "../assets/OwlCarousel2/owl.carousel.min.js"; 
+// @codekit-prepend "../assets/iscroll.js"; 
+// @codekit-prepend "../assets/drawer/js/jquery.drawer.min.js"; 
 // @codekit-prepend "../assets/gmap3.min.js"; 
 
 
