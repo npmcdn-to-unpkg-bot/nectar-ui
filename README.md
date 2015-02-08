@@ -30,9 +30,9 @@ Nectar UI from Bootstrap.
 
 [https://github.com/kswedberg/jquery-smooth-scroll](https://github.com/kswedberg/jquery-smooth-scroll)
 
-### OwlCarousel2
+### Flickity
 
-[http://www.owlcarousel.owlgraphic.com](http://www.owlcarousel.owlgraphic.com)
+[http://flickity.metafizzy.co](http://flickity.metafizzy.co)
 
 ### iScroll
 

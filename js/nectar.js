@@ -10,7 +10,7 @@
 // @codekit-prepend "../assets/jquery.heightLine.js";
 // @codekit-prepend "../assets/jquery.biggerlink.min.js"; 
 // @codekit-prepend "../assets/jquery.smooth-scroll.js"; 
-// @codekit-prepend "../assets/OwlCarousel2/owl.carousel.min.js"; 
+// @codekit-prepend "../assets/flickity/dist/flickity.pkgd.min.js"; 
 // @codekit-prepend "../assets/iscroll.js"; 
 // @codekit-prepend "../assets/drawer/js/jquery.drawer.min.js"; 
 // @codekit-prepend "../assets/gmap3.min.js"; 
