@@ -90,6 +90,7 @@
                             <div class="col-md-12">
 
                                 <h2>Flickity</h2>
+                                <h2>Gallery</h2>
 
                                 <div id="flickity-gallery">
                                     <div class="gallery-cell">
@@ -102,6 +103,40 @@
                                     <div class="gallery-cell">
                                         ccc
                                     </div>
+                                </div>
+
+                            </div>
+                        </div><!-- /.row -->
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <h2>Slide</h2>
+
+                                <div id="flickity-slide">
+                                    <div class="gallery-cell" style="background-image:url('http://placehold.it/1200x400/27339b/ffffff');">
+                                        aaa
+                                    </div>
+                                    <div class="gallery-cell" style="background-image:url('http://placehold.it/1200x400/27dddd/ffffff');">
+                                        bbb
+                                    </div>
+                                    <div class="gallery-cell" style="background-image:url('http://placehold.it/1200x400/321222/ffffff');">
+                                        ccc
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div><!-- /.row -->
+
+                        <div class="row">
+                            <div class="col-md-12">
+
+                                <h2>Image</h2>
+
+                                <div id="flickity-image">
+                                    <img src="http://placehold.it/1200x400/27439b/ffffff">
+                                    <img src="http://placehold.it/1200x400/99539b/ffffff">
+                                    <img src="http://placehold.it/1200x400/00239b/ffffff">
                                 </div>
 
                             </div>
@@ -134,6 +169,18 @@
 <script>
 $(document).ready(function() {
     $('#flickity-gallery').flickity({
+        cellAlign: 'center',
+        wrapAround: true,
+        autoPlay: true
+    });
+    $('#flickity-slide').flickity({
+        cellAlign: 'center',
+        wrapAround: true,
+        autoPlay: true
+    });
+    $('#flickity-image').flickity({
+        imagesLoaded: true,
+        percentPosition: false,
         cellAlign: 'center',
         wrapAround: true,
         autoPlay: true

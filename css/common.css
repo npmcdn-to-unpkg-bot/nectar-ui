@@ -10257,13 +10257,12 @@ fieldset[disabled] #social-button .btn-pocket.active {
   /* IE8 */
   opacity: 1;
 }
-.gallery-cell {
-  width: 90%;
-  height: 140px;
-}
 .flickity-prev-next-button {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
+  background: transparent;
+}
+.flickity-prev-next-button:hover {
   background: transparent;
 }
 /* arrow color */
@@ -10279,12 +10278,13 @@ fieldset[disabled] #social-button .btn-pocket.active {
 }
 /* position dots in gallery */
 .flickity-page-dots {
-  bottom: 0px;
+  bottom: 10px;
 }
 /* white circles */
 .flickity-page-dots .dot {
   width: 12px;
   height: 12px;
+  margin: 0 2px;
   opacity: 1;
   background: transparent;
   border: 2px solid white;
@@ -10292,6 +10292,21 @@ fieldset[disabled] #social-button .btn-pocket.active {
 /* fill-in selected dot */
 .flickity-page-dots .dot.is-selected {
   background: white;
+}
+#flickity-gallery .gallery-cell {
+  width: 90%;
+  height: 240px;
+}
+#flickity-slide .gallery-cell {
+  width: 90%;
+  height: 240px;
+  background-color: transparent;
+  background-position: 50% 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+#flickity-image img {
+  height: 240px;
 }
 /*!
  * drawer v2.3.0
