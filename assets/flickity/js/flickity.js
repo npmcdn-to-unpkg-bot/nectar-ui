@@ -1,6 +1,10 @@
 /*!
- * Flickity v0.2.0
+ * Flickity v1.0.0
  * Touch, responsive, flickable galleries
+ *
+ * Licensed GPLv3 for open source use
+ * or Flickity Commercial License for commercial use
+ *
  * http://flickity.metafizzy.co
  * Copyright 2015 Metafizzy
  */
@@ -105,7 +109,8 @@ Flickity.defaults = {
   // initialIndex: 0,
   percentPosition: true,
   resize: true,
-  selectedAttraction: 0.025
+  selectedAttraction: 0.025,
+  setGallerySize: true
   // watchCSS: false,
   // wrapAround: false
 };
@@ -133,6 +138,7 @@ Flickity.prototype._create = function() {
   // create viewport & slider
   this.viewport = document.createElement('div');
   this.viewport.className = 'flickity-viewport';
+  Flickity.setUnselectable( this.viewport );
   this._createSlider();
 
   if ( this.options.resize || this.options.watchCSS ) {
@@ -180,7 +186,7 @@ Flickity.prototype.activate = function() {
   this.getSize();
   // get cells from children
   this.reloadCells();
-  this.setContainerSize();
+  this.setGallerySize();
 
   if ( this.options.accessibility ) {
     // allow element to focusable
@@ -214,7 +220,7 @@ Flickity.prototype.reloadCells = function() {
   this.cells = this._makeCells( this.slider.children );
   this.positionCells();
   this._getWrapShiftCells();
-  this.setContainerSize();
+  this.setGallerySize();
 };
 
 /**
@@ -320,8 +326,10 @@ Flickity.prototype.setCellAlign = function() {
   this.cellAlign = shorthand ? shorthand[ this.originSide ] : this.options.cellAlign;
 };
 
-Flickity.prototype.setContainerSize = function() {
-  this.viewport.style.height = this.maxCellHeight + 'px';
+Flickity.prototype.setGallerySize = function() {
+  if ( this.options.setGallerySize ) {
+    this.viewport.style.height = this.maxCellHeight + 'px';
+  }
 };
 
 Flickity.prototype._getWrapShiftCells = function() {
@@ -372,13 +380,21 @@ Flickity.prototype._containCells = function() {
   var lastCell = this.getLastCell();
   var contentWidth = this.slideableWidth - lastCell.size[ endMargin ];
   var endLimit = contentWidth - this.size.innerWidth * ( 1 - this.cellAlign );
+  // content is less than gallery size
+  var isContentSmaller = contentWidth < this.size.innerWidth;
   // contain each cell target
   for ( var i=0, len = this.cells.length; i < len; i++ ) {
     var cell = this.cells[i];
     // reset default target
     cell.setDefaultTarget();
-    cell.target = Math.max( cell.target, this.cursorPosition + firstCellStartMargin );
-    cell.target = Math.min( cell.target, endLimit );
+    if ( isContentSmaller ) {
+      // all cells fit inside gallery
+      cell.target = contentWidth * this.cellAlign;
+    } else {
+      // contain to bounds
+      cell.target = Math.max( cell.target, this.cursorPosition + firstCellStartMargin );
+      cell.target = Math.min( cell.target, endLimit );
+    }
   }
 };
 
@@ -398,7 +414,7 @@ Flickity.prototype.dispatchEvent = function( type, event, args ) {
     if ( event ) {
       // create jQuery event
       var $event = jQuery.Event( event );
-      $event.type = type + '.flickity';
+      $event.type = type;
       this.$element.trigger( $event, args );
     } else {
       // just trigger with type if no event available
@@ -418,23 +434,24 @@ Flickity.prototype.select = function( index, isWrap ) {
     return;
   }
   // wrap position so slider is within normal area
-  if ( this.options.wrapAround ) {
+  var len = this.cells.length;
+  if ( this.options.wrapAround && len > 1 ) {
     if ( index < 0 ) {
       this.x -= this.slideableWidth;
-    } else if ( index >= this.cells.length ) {
+    } else if ( index >= len ) {
       this.x += this.slideableWidth;
     }
   }
 
   if ( this.options.wrapAround || isWrap ) {
-    index = utils.modulo( index, this.cells.length );
+    index = utils.modulo( index, len );
   }
 
   if ( this.cells[ index ] ) {
     this.selectedIndex = index;
     this.setSelectedCell();
     this.startAnimation();
-    this.dispatchEvent('select');
+    this.dispatchEvent('cellSelect');
   }
 };
 
@@ -514,8 +531,12 @@ Flickity.prototype.getCellElements = function() {
 Flickity.prototype.getParentCell = function( elem ) {
   // first check if elem is cell
   var cell = this.getCell( elem );
-  cell = cell || utils.getParent( elem, '.flickity-slider > *' );
-  return cell;
+  if ( cell ) {
+    return cell;
+  }
+  // try to get parent cell elem
+  elem = utils.getParent( elem, '.flickity-slider > *' );
+  return this.getCell( elem );
 };
 
 // -------------------------- events -------------------------- //
@@ -548,7 +569,7 @@ Flickity.prototype.resize = function() {
   }
   this.positionCells();
   this._getWrapShiftCells();
-  this.setContainerSize();
+  this.setGallerySize();
   this.positionSliderAtSelected();
 };
 
@@ -654,6 +675,9 @@ Flickity.prototype.destroy = function() {
     eventie.unbind( window, 'resize', this );
   }
   this.emit('destroy');
+  if ( jQuery && this.$element ) {
+    jQuery.removeData( this.element, 'flickity' );
+  }
   delete this.element.flickityGUID;
   delete instances[ this.guid ];
 };
@@ -663,6 +687,17 @@ Flickity.prototype.destroy = function() {
 utils.extend( Flickity.prototype, animatePrototype );
 
 // -------------------------- extras -------------------------- //
+
+// quick check for IE8
+var isIE8 = 'attachEvent' in window;
+
+Flickity.setUnselectable = function( elem ) {
+  if ( !isIE8 ) {
+    return;
+  }
+  // IE8 prevent child from changing focus http://stackoverflow.com/a/17525223/182183
+  elem.setAttribute( 'unselectable', 'on' );
+};
 
 /**
  * get Flickity instance from element
@@ -680,6 +715,8 @@ utils.htmlInit( Flickity, 'flickity' );
 if ( jQuery && jQuery.bridget ) {
   jQuery.bridget( 'flickity', Flickity );
 }
+
+Flickity.Cell = Cell;
 
 return Flickity;
 

@@ -71,23 +71,26 @@ proto._createDrag = function() {
   this.on( 'activate', this.bindDrag );
   this.on( 'uiChange', this._uiChangeDrag );
   this.on( 'childUIPointerDown', this._childUIPointerDownDrag );
+  this.on( 'deactivate', this.unbindDrag );
 };
 
 proto.bindDrag = function() {
-  if ( !this.options.draggable ) {
+  if ( !this.options.draggable || this.isDragBound ) {
     return;
   }
   classie.add( this.element, 'is-draggable' );
   this.handles = [ this.viewport ];
   this.bindHandles();
+  this.isDragBound = true;
 };
 
 proto.unbindDrag = function() {
-  if ( !this.options.draggable ) {
+  if ( !this.isDragBound ) {
     return;
   }
   classie.remove( this.element, 'is-draggable' );
   this.unbindHandles();
+  delete this.isDragBound;
 };
 
 proto.hasDragStarted = function( moveVector ) {
@@ -320,13 +323,15 @@ proto._getClosestResting = function( restingX, distance, increment ) {
  */
 proto.getCellDistance = function( x, index ) {
   var len = this.cells.length;
-  var cellIndex = this.options.wrapAround ? utils.modulo( index, len ) : index;
+  // wrap around if at least 2 cells
+  var isWrapAround = this.options.wrapAround && len > 1;
+  var cellIndex = isWrapAround ? utils.modulo( index, len ) : index;
   var cell = this.cells[ cellIndex ];
   if ( !cell ) {
     return null;
   }
   // add distance for wrap-around cells
-  var wrap = this.options.wrapAround ? this.slideableWidth * Math.floor( index / len ) : 0;
+  var wrap = isWrapAround ? this.slideableWidth * Math.floor( index / len ) : 0;
   return x - ( cell.target + wrap );
 };
 
@@ -347,11 +352,9 @@ proto.dragEndBoostSelect = function() {
 proto.staticClick = function( event, pointer ) {
   // get clickedCell, if cell was clicked
   var clickedCell = this.getParentCell( event.target );
-  var clickedCellIndex = clickedCell &&
-    utils.indexOf( this.cells, clickedCell );
-  var clickedCellElem = clickedCell && clickedCell.element;
-  this.dispatchEvent( 'staticClick', event,
-    [ pointer, clickedCellIndex, clickedCellElem ] );
+  var cellElem = clickedCell && clickedCell.element;
+  var cellIndex = clickedCell && utils.indexOf( this.cells, clickedCell );
+  this.dispatchEvent( 'staticClick', event, [ pointer, cellElem, cellIndex ] );
 };
 
 // -----  ----- //

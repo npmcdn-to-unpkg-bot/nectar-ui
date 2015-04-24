@@ -80,6 +80,7 @@ PrevNextButton.prototype._create = function() {
   element.className += this.isPrevious ? ' previous' : ' next';
   // prevent button from submitting form http://stackoverflow.com/a/10836076/182183
   element.setAttribute( 'type', 'button' );
+  Flickity.setUnselectable( element );
   // create arrow
   if ( supportsInlineSVG() ) {
     var svg = this.createSVG();
@@ -91,10 +92,10 @@ PrevNextButton.prototype._create = function() {
   }
   // update on select
   var _this = this;
-  this.onselect = function() {
+  this.onCellSelect = function() {
     _this.update();
   };
-  this.parent.on( 'select', this.onselect );
+  this.parent.on( 'cellSelect', this.onCellSelect );
   // tap
   this.on( 'tap', this.onTap );
   // pointerDown
@@ -179,12 +180,13 @@ PrevNextButton.prototype.disable = function() {
 };
 
 PrevNextButton.prototype.update = function() {
-  if ( this.parent.options.wrapAround ) {
+  // index of first or last cell, if previous or next
+  var cells = this.parent.cells;
+  // enable is wrapAround and at least 2 cells
+  if ( this.parent.options.wrapAround && cells.length > 1 ) {
     this.enable();
     return;
   }
-  // index of first or last cell, if previous or next
-  var cells = this.parent.cells;
   var lastIndex = cells.length ? cells.length - 1 : 0;
   var boundIndex = this.isPrevious ? 0 : lastIndex;
   var method = this.parent.selectedIndex == boundIndex ? 'disable' : 'enable';
@@ -198,7 +200,9 @@ PrevNextButton.prototype.destroy = function() {
 // -------------------------- Flickity prototype -------------------------- //
 
 utils.extend( Flickity.defaults, {
-  prevNextButtons: true
+  prevNextButtons: true,
+  leftArrowText: '‹',
+  rightArrowText: '›'
 });
 
 Flickity.createMethods.push('_createPrevNextButtons');

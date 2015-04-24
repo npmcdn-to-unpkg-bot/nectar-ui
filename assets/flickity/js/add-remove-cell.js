@@ -112,7 +112,7 @@ Flickity.prototype.remove = function( elems ) {
     cell = cells[i];
     cell.remove();
     // remove item from collection
-    utils.removeFrom( cell, this.cells );
+    utils.removeFrom( this.cells, cell );
   }
 
   if ( cells.length ) {
@@ -161,7 +161,7 @@ Flickity.prototype.cellChange = function( changedCellIndex ) {
 
   this._positionCells( changedCellIndex );
   this._getWrapShiftCells();
-  this.setContainerSize();
+  this.setGallerySize();
   // position slider
   if ( this.options.freeScroll ) {
     this.positionSlider();

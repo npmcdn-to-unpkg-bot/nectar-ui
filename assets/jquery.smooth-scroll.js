@@ -1,21 +1,5 @@
-/*!
- * jQuery Smooth Scroll - v1.5.4 - 2014-11-17
- * https://github.com/kswedberg/jquery-smooth-scroll
- * Copyright (c) 2014 Karl Swedberg
- * Licensed MIT (https://github.com/kswedberg/jquery-smooth-scroll/blob/master/LICENSE-MIT)
- */
-
-(function (factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['jquery'], factory);
-  } else {
-    // Browser globals
-    factory(jQuery);
-  }
-}(function ($) {
-
-  var version = '1.5.4',
+(function($) {
+  var version = '1.5.5',
       optionOverrides = {},
       defaults = {
         exclude: [],
@@ -265,5 +249,4 @@
     return str.replace(/(:|\.|\/)/g,'\\$1');
   }
 
-}));
-
+})(jQuery);

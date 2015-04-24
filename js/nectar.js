@@ -2,7 +2,7 @@
  * Nectar UI
  * http://hncm.jp/
  * 
- * v2015-02-06
+ * v2015-04-25
  */
 
 // @codekit-prepend "../assets/imagesloaded.pkgd.min.js";

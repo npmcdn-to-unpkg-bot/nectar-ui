@@ -2,21 +2,40 @@
 
 var fs = require('fs');
 var gulp = require('gulp');
+var rename = require('gulp-rename');
+var replace = require('gulp-replace');
 
-// ----- jshint ----- //
+// ----- hint ----- //
 
 var jshint = require('gulp-jshint');
 
-gulp.task( 'hint', function() {
-  // source
-  gulp.src('js/**/*.js')
-    .pipe( jshint() )
-    .pipe( jshint.reporter('default') );
-  // tests
-  gulp.src('test/unit/*.js')
+gulp.task( 'hint-js', function() {
+  return gulp.src('js/**/*.js')
     .pipe( jshint() )
     .pipe( jshint.reporter('default') );
 });
+
+gulp.task( 'hint-test', function() {
+  return gulp.src('test/unit/*.js')
+    .pipe( jshint() )
+    .pipe( jshint.reporter('default') );
+});
+
+gulp.task( 'hint-task', function() {
+  return gulp.src('gulpfile.js')
+    .pipe( jshint() )
+    .pipe( jshint.reporter('default') );
+});
+
+var jsonlint = require('gulp-json-lint');
+
+gulp.task( 'jsonlint', function() {
+  return gulp.src( '*.json' )
+    .pipe( jsonlint() )
+    .pipe( jsonlint.report('verbose') );
+});
+
+gulp.task( 'hint', [ 'hint-js', 'hint-test', 'hint-task', 'jsonlint' ]);
 
 // -------------------------- RequireJS makes pkgd -------------------------- //
 
@@ -69,9 +88,6 @@ function rjsOptimize( options ) {
   return stream;
 }
 
-var rename = require('gulp-rename');
-var replace = require('gulp-replace');
-
 // regex for banner comment
 var reBannerComment = new RegExp('^\\s*(?:\\/\\*[\\s\\S]*?\\*\\/)\\s*');
 
@@ -97,7 +113,7 @@ gulp.task( 'requirejs', function() {
       include: [
         'jquery-bridget/jquery.bridget',
         'flickity/js/index',
-        'flickity-sync/flickity-sync',
+        'flickity-as-nav-for/as-nav-for',
         'flickity-imagesloaded/flickity-imagesloaded'
       ],
       paths: {
@@ -128,13 +144,59 @@ gulp.task( 'uglify', [ 'requirejs' ], function() {
     .pipe( gulp.dest('dist') );
 });
 
-gulp.task( 'copy-css', function() {
+// ----- css ----- //
+
+var minifyCSS = require('gulp-minify-css');
+
+gulp.task( 'css', function() {
   gulp.src('css/flickity.css')
+    // copy to dist
+    .pipe( gulp.dest('dist') )
+    // minify
+    .pipe( minifyCSS({ advanced: false }) )
+    .pipe( rename('flickity.min.css') )
+    .pipe( replace( '*/', '*/\n' ) )
     .pipe( gulp.dest('dist') );
 });
 
+// ----- version ----- //
+
+// set version in source files
+
+var minimist = require('minimist');
+
+// use gulp version -t 1.2.3
+gulp.task( 'version', function() {
+  var args = minimist( process.argv.slice(3) );
+  var version = args.t;
+  if ( !version || !/\d\.\d\.\d/.test( version ) ) {
+    gutil.log( 'invalid version: ' + chalk.red( version ) );
+    return;
+  }
+  gutil.log( 'ticking version to ' + chalk.green( version ) );
+
+  function sourceReplace() {
+    return replace( /Flickity v\d\.\d\.\d/, 'Flickity v' + version );
+  }
+
+  gulp.src('js/flickity.js')
+    .pipe( sourceReplace() )
+    .pipe( gulp.dest('js') );
+
+  gulp.src('css/flickity.css')
+    .pipe( sourceReplace() )
+    .pipe( gulp.dest('css') );
+
+  gulp.src( [ 'bower.json', 'package.json' ] )
+    .pipe( replace( /"version": "\d\.\d\.\d"/, '"version": "' + version + '"' ) )
+    .pipe( gulp.dest('.') );
+});
+
+// ----- default ----- //
+
 gulp.task( 'default', [
   'hint',
+  'jsonlint',
   'uglify',
-  'copy-css'
+  'css'
 ]);
