@@ -1,5 +1,5 @@
 /*!
- * Flickity v1.0.0
+ * Flickity v1.0.2
  * Touch, responsive, flickable galleries
  *
  * Licensed GPLv3 for open source use
@@ -186,7 +186,6 @@ Flickity.prototype.activate = function() {
   this.getSize();
   // get cells from children
   this.reloadCells();
-  this.setGallerySize();
 
   if ( this.options.accessibility ) {
     // allow element to focusable

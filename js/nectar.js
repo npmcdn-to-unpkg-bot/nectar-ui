@@ -8,13 +8,13 @@
 // @codekit-prepend "../assets/imagesloaded.pkgd.min.js";
 // @codekit-prepend "../assets/masonry.pkgd.min.js";
 // @codekit-prepend "../assets/jquery.heightLine.js";
-// @codekit-prepend "../assets/jquery.biggerlink.min.js"; 
+// @codekit-prepend "../assets/jquery.biggerlink.min.js";
 // @codekit-prepend "../assets/jquery.smooth-scroll.js"; 
-// @codekit-prepend "../assets/fresco/js/fresco/fresco.js"; 
-// @codekit-prepend "../assets/flickity/dist/flickity.pkgd.min.js"; 
-// @codekit-prepend "../assets/iscroll.js"; 
-// @codekit-prepend "../assets/drawer/js/jquery.drawer.min.js"; 
-// @codekit-prepend "../assets/gmap3.min.js"; 
+// @codekit-prepend "../assets/fresco/js/fresco/fresco.js";
+// @codekit-prepend "../assets/flickity/dist/flickity.pkgd.min.js";
+// @codekit-prepend "../assets/iscroll.js";
+// @codekit-prepend "../assets/drawer/js/jquery.drawer.min.js";
+// @codekit-prepend "../assets/gmap3.min.js";
 
 
 /*!
