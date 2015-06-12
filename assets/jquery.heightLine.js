@@ -1,6 +1,6 @@
 /*!--------------------------------------------------------------------------*
  *  
- *  jquery.heightLine.js 1.0.0
+ *  jquery.heightLine.js
  *  
  *  MIT-style license. 
  *  

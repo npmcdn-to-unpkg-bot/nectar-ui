@@ -5,11 +5,19 @@
 
 // Alternate buttons
 // --------------------------------------------------
+@btn-light-color:                #ffffff;
+@btn-light-bg:                   #ffffff;
+@btn-light-border:               darken(@btn-light-bg, 5%);
+@btn-dark-color:                 #ffffff;
+@btn-dark-bg:                    #bbbbbb;
+@btn-dark-border:                darken(@btn-dark-bg, 5%);
 
 .btn-light {
-  .button-variant(#ffffff; #ffffff; #ffffff);
+  .button-variant(@btn-light-color; @btn-light-bg; @btn-light-border);
 }
-
+.btn-dark {
+  .button-variant(@btn-dark-color; @btn-dark-bg; @btn-dark-border);
+}
 
 
 // Rounded
@@ -69,7 +77,10 @@
     color: @btn-danger-bg;
 }
 .btn-outline.btn-light {
-    color: #ffffff;
+    color: @btn-light-bg;
+}
+.btn-outline.btn-dark {
+    color: @btn-dark-bg;
 }
 
 .btn-outline.btn-default:hover {
@@ -82,12 +93,10 @@
 .btn-outline.btn-success:hover,
 .btn-outline.btn-info:hover,
 .btn-outline.btn-warning:hover,
-.btn-outline.btn-danger:hover {
+.btn-outline.btn-danger:hover,
+.btn-outline.btn-dark:hover {
     color: #ffffff;
 }
-
-
-
 
 
 // Embossed
@@ -99,6 +108,8 @@
 @btn-info-shadow:                darken(@btn-info-bg, 15%);
 @btn-warning-shadow:             darken(@btn-warning-bg, 15%);
 @btn-danger-shadow:              darken(@btn-danger-bg, 15%);
+@btn-light-shadow:               darken(@btn-light-bg, 15%);
+@btn-dark-shadow:                darken(@btn-dark-bg, 15%);
 
 .btn-emboss {
     -webkit-transition: border .25s linear, color .25s linear, background-color .25s linear;
@@ -144,8 +155,12 @@
 .btn-emboss.btn-danger {
     .button-emboss-variant(@btn-danger-shadow);
 }
-
-
+.btn-emboss.btn-light {
+    .button-emboss-variant(@btn-light-shadow);
+}
+.btn-emboss.btn-dark {
+    .button-emboss-variant(@btn-dark-shadow);
+}
 
 
 // Icon

@@ -1,0 +1,826 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Touch, responsive, flickable galleries">
+  <meta name="viewport" content="width=device-width">
+
+  <title>Flickity &#xB7; Options</title>
+
+    <link rel="stylesheet" href="css/flickity-docs.css" media="screen">
+
+</head>
+<body class="page--options export">
+
+<nav class="site-nav">
+  <div class="content-wrap">
+    <ul class="site-nav__list">
+      <li class="site-nav__item site-nav__item--homepage"><a href=".">Flickity</a></li>
+      <li class="site-nav__item site-nav__item--style"><a href="style.html">Style</a></li>
+      <li class="site-nav__item site-nav__item--options"><a href="options.html">Options</a></li>
+      <li class="site-nav__item site-nav__item--api"><a href="api.html">API</a></li>
+      <li class="site-nav__item site-nav__item--extras"><a href="extras.html">Extras</a></li>
+      <li class="site-nav__item site-nav__item--license"><a href="license.html">License</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<div class="main">
+  <div class="content-wrap">
+      <h1 class="page-title">Options</h1>
+
+
+    <ul class="page-nav js-stickeroo">
+<li class="page-nav__item--h2"><a href="#setup">Setup</a></li>
+<li class="page-nav__item--h3"><a href="#cellselector">cellSelector</a></li>
+<li class="page-nav__item--h3"><a href="#initialindex">initialIndex</a></li>
+<li class="page-nav__item--h3"><a href="#accessibility">accessibility</a></li>
+<li class="page-nav__item--h3"><a href="#setgallerysize">setGallerySize</a></li>
+<li class="page-nav__item--h3"><a href="#resize">resize</a></li>
+<li class="page-nav__item--h2"><a href="#cell-position">Cell position</a></li>
+<li class="page-nav__item--h3"><a href="#cellalign">cellAlign</a></li>
+<li class="page-nav__item--h3"><a href="#contain">contain</a></li>
+<li class="page-nav__item--h3"><a href="#imagesloaded">imagesLoaded</a></li>
+<li class="page-nav__item--h3"><a href="#percentposition">percentPosition</a></li>
+<li class="page-nav__item--h3"><a href="#righttoleft">rightToLeft</a></li>
+<li class="page-nav__item--h2"><a href="#dragging">Dragging</a></li>
+<li class="page-nav__item--h3"><a href="#draggable">draggable</a></li>
+<li class="page-nav__item--h3"><a href="#freescroll">freeScroll</a></li>
+<li class="page-nav__item--h2"><a href="#behavior">Behavior</a></li>
+<li class="page-nav__item--h3"><a href="#wraparound">wrapAround</a></li>
+<li class="page-nav__item--h3"><a href="#autoplay">autoPlay</a></li>
+<li class="page-nav__item--h3"><a href="#watchcss">watchCSS</a></li>
+<li class="page-nav__item--h3"><a href="#asnavfor">asNavFor</a></li>
+<li class="page-nav__item--h2"><a href="#ui">UI</a></li>
+<li class="page-nav__item--h3"><a href="#prevnextbuttons">prevNextButtons</a></li>
+<li class="page-nav__item--h3"><a href="#pagedots">pageDots</a></li>
+</ul>
+
+
+<h2 id="setup">Setup</h2>
+
+<h3 id="cellselector">cellSelector</h3>
+
+<p>Specify selector for cell elements. <code>cellSelector</code> is useful if you have other elements in your gallery elements that are not cells.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">cellSelector: <span class="string">&apos;.gallery-cell&apos;</span>
+</code></pre>
+
+<pre><code class="html"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;gallery&quot;</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;static-banner&quot;</span>&gt;</span>Static banner 1<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;static-banner&quot;</span>&gt;</span>Static banner 2<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;gallery-cell&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;gallery-cell&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  <span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;gallery-cell&quot;</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+  ...
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="gallery gallery--cell-selector-demo js-flickity" data-flickity-options="{ &quot;cellSelector&quot;: &quot;.gallery-cell&quot; }">
+      <div class="static-banner static-banner1">Static banner 1</div>
+      <div class="static-banner static-banner2">Static banner 2</div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/ZYrYZq">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+
+<h3 id="initialindex">initialIndex</h3>
+
+<p>Zero-based index of the initial selected cell.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">initialIndex: <span class="number">2</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="gallery js-flickity" data-flickity-options="{ &quot;initialIndex&quot;: 2 }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+  </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/vEdOKg">Edit this demo on CodePen</a>
+    </p>
+</div>
+
+
+<h3 id="accessibility">accessibility</h3>
+
+<p>Enable keyboard navigation. Users can tab to a Flickity gallery, and pressing left &amp; right keys to change cells. Enabled by default <code><span class="comment">accessibility: true</span></code>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">accessibility: <span class="literal">false</span>
+<span class="comment">// disables being able to tab to Flickity</span>
+<span class="comment">// and keyboard navigation</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="gallery js-flickity" data-flickity-options="{ &quot;accessibility&quot;: false }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/NPyqrM">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+
+<h3 id="setgallerysize">setGallerySize</h3>
+
+<p>Sets the height of the gallery to the height of the tallest cell. Enabled by default <code><span class="comment">setGallerySize: true</span></code>.</p>
+
+<p>Use <code>setGallerySize: <span class="literal">false</span></code> if you prefer to size the gallery with CSS, rather than using the size of cells.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">setGallerySize: <span class="literal">false</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* gallery height */</span>
+<span class="class">.gallery</span> <span class="rules">{
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">160px</span></span></span>;
+<span class="rule">}</span></span>
+
+<span class="comment">/* cell inherit height from gallery */</span>
+<span class="class">.gallery-cell</span> <span class="rules">{
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100%</span></span></span>;
+<span class="rule">}</span></span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="gallery gallery--set-gallery-size-disabled js-flickity" data-flickity-options="{ &quot;setGallerySize&quot;: false }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/jEzKNG">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+<p>You can size the gallery height as percentage of its width with <code><span class="attribute">padding-bottom</span></code> and <code><span class="class">.flickity-viewport</span></code> CSS.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">setGallerySize: <span class="literal">false</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* gallery height, as percentage of width */</span>
+<span class="class">.gallery</span> <span class="rules">{
+  <span class="rule"><span class="attribute">padding-bottom</span>:<span class="value"> <span class="number">33.3%</span></span></span>;
+<span class="rule">}</span></span>
+
+<span class="comment">/* viewport inherit size from gallery */</span>
+<span class="class">.gallery</span> <span class="class">.flickity-viewport</span> <span class="rules">{
+  <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100%</span></span></span>;
+<span class="rule">}</span></span>
+
+<span class="comment">/* cell inherit height from gallery */</span>
+<span class="class">.gallery-cell</span> <span class="rules">{
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100%</span></span></span>;
+<span class="rule">}</span></span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="gallery gallery--set-gallery-size-disabled-percentage js-flickity" data-flickity-options="{ &quot;setGallerySize&quot;: false }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/dPmKyx">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+
+<h3 id="resize">resize</h3>
+
+<p>Adjusts sizes and positions when window is resized. Enabled by default <code><span class="comment">resize: true</span></code>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">resize: <span class="literal">false</span>
+<span class="comment">// disables resize logic</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* gallery has fixed width */</span>
+<span class="class">.gallery</span> <span class="rules">{
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">300px</span></span></span>;
+<span class="rule">}</span></span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="gallery gallery--resize-option js-flickity" data-flickity-options="{ &quot;resize&quot;: false }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/yyvNaG">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+
+<h2 id="cell-position">Cell position</h2>
+
+<h3 id="cellalign">cellAlign</h3>
+
+<p>Align cells within the gallery element.</p>
+
+<div class="example duo">
+  <div class="example__code duo__cell">
+<pre><code class="js">cellAlign: <span class="string">&apos;left&apos;</span>
+</code></pre>
+  </div>
+  <div class="example__demo duo__cell">
+    <div class="gallery js-flickity" data-flickity-options="{ &quot;cellAlign&quot;: &quot;left&quot; }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/MYQwbx">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+<div class="example duo">
+  <div class="example__code duo__cell">
+<pre><code class="js"><span class="comment">// default cellAlign: &apos;center&apos;</span>
+</code></pre>
+  </div>
+  <div class="example__demo duo__cell">
+    <div class="gallery js-flickity">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/azqbop">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+<div class="example duo">
+  <div class="example__code duo__cell">
+<pre><code class="js">cellAlign: <span class="string">&apos;right&apos;</span>
+</code></pre>
+  </div>
+  <div class="example__demo duo__cell">
+    <div class="gallery js-flickity" data-flickity-options="{ &quot;cellAlign&quot;: &quot;right&quot; }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/ogEXBL">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+
+<h3 id="contain">contain</h3>
+
+<p>Contains cells to gallery element to prevent excess scroll at beginning or end. Has no effect if <code>wrapAround: true</code>.</p>
+
+<div class="example duo">
+  <div class="example__code duo__cell">
+<pre><code class="js">contain: <span class="literal">true</span>
+</code></pre>
+  </div>
+  <div class="example__demo duo__cell">
+    <div class="gallery gallery--show-several js-flickity" data-flickity-options="{ &quot;contain&quot;: true }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/QwQbdV">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+
+<h3 id="imagesloaded">imagesLoaded</h3>
+
+<p>Unloaded images have no size, which can throw off cell positions. To fix this, the <code>imagesLoaded</code> option re-positions cells once their images have loaded.</p>
+
+<div class="example duo">
+  <div class="example__code duo__cell">
+<pre><code class="js">imagesLoaded: <span class="literal">true</span>
+</code></pre>
+  </div>
+  <div class="example__demo duo__cell">
+    <div class="gallery gallery--images-loaded-demo js-flickity" data-flickity-options="{ &quot;imagesLoaded&quot;: true }">
+        <!-- images from unsplash.com -->
+        <img src="http://i.imgur.com/bwy74ok.jpg">
+        <img src="http://i.imgur.com/bAZWoqx.jpg">
+        <img src="http://i.imgur.com/PgmEBSB.jpg">
+        <img src="http://i.imgur.com/aboaFoB.jpg">
+        <img src="http://i.imgur.com/LkmcILl.jpg">
+        <img src="http://i.imgur.com/q9zO6tw.jpg">
+        <!-- <img src="http://i.imgur.com/r8p3Xgq.jpg" />
+        <img src="http://i.imgur.com/hODreXI.jpg" />
+        <img src="http://i.imgur.com/UORFJ3w.jpg" /> -->
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/MYQWEe">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+<div class="call-out">
+  <p><code>imagesLoaded</code> requires the <a href="https://github.com/metafizzy/flickity-imagesloaded">flickity-imagesloaded package</a>. It already <em>is</em> included with <code>flickity.pkgd.js</code>, but not with Flickity as a stand-alone package. If you are using Browserify or RequireJS without <code>flickity.pkgd.js</code>, you need to install and require <code>flickity-imagesloaded</code> separately. See details in <a href="extras.html">Extras</a>.</p>
+</div>
+
+
+<h3 id="percentposition">percentPosition</h3>
+
+<p>Sets positioning in percent values, rather than pixel values. If your cells do not have percent widths, we recommended <code>percentPosition: false</code>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js"><span class="comment">// default percentPosition: false</span>
+<span class="comment">// sets cell position in percentages</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* cell width in percent */</span>
+<span class="class">.gallery-cell</span> <span class="rules">{
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">66%</span></span></span>;
+<span class="rule">}</span></span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="gallery js-flickity" data-flickity-options="{ &quot;percentPosition&quot;: false }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/azqbop">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">percentPosition: <span class="literal">false</span>
+<span class="comment">// sets cell position in pixels</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* cell width in pixels */</span>
+<span class="class">.gallery-cell</span> <span class="rules">{
+  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">300px</span></span></span>;
+<span class="rule">}</span></span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="gallery gallery--pixel-position-demo js-flickity" data-flickity-options="{ &quot;percentPosition&quot;: false }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/dPdoWp">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+
+<h3 id="righttoleft">rightToLeft</h3>
+
+<p>Enables right-to-left layout.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">rightToLeft: <span class="literal">true</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="gallery js-flickity" data-flickity-options="{ &quot;rightToLeft&quot;: true }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/ZYrGKN">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+
+<h2 id="dragging">Dragging</h2>
+
+
+<h3 id="draggable">draggable</h3>
+
+<p>Enables dragging and flicking. Enabled by default <code><span class="comment">dragging: true</span></code>.</p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">draggable: <span class="literal">false</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="gallery js-flickity" data-flickity-options="{ &quot;draggable&quot;: false }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/dPdoRO">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+
+<h3 id="freescroll">freeScroll</h3>
+
+<p>Enables content to be freely scrolled and flicked without aligning cells to an end position.</p>
+
+<div class="example duo">
+  <div class="example__code duo__cell">
+<pre><code class="js">freeScroll: <span class="literal">true</span>
+</code></pre>
+  </div>
+  <div class="example__demo duo__cell">
+    <div class="gallery js-flickity" data-flickity-options="{ &quot;freeScroll&quot;: true }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/bNLGNZ">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+<p>Enable <code>freeScroll</code> and <code>contain</code> for a simple horizontal scroller.</p>
+
+<div class="example duo">
+  <div class="example__code duo__cell">
+<pre><code class="js">freeScroll: <span class="literal">true</span>,
+contain: <span class="literal">true</span>,
+<span class="comment">// disable previous &amp; next buttons and dots</span>
+prevNextButtons: <span class="literal">false</span>,
+pageDots: <span class="literal">false</span>
+</code></pre>
+  </div>
+  <div class="example__demo duo__cell">
+    <div class="gallery js-flickity" data-flickity-options="{ &quot;freeScroll&quot;: true, &quot;contain&quot;: true, &quot;prevNextButtons&quot;: false, &quot;pageDots&quot;: false }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/zxRYGo">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+<p>Enable <code>freeScroll</code> and <code>wrapAround</code> and you can flick forever, man.</p>
+
+<div class="example duo">
+  <div class="example__code duo__cell">
+<pre><code class="js">freeScroll: <span class="literal">true</span>,
+wrapAround: <span class="literal">true</span>
+</code></pre>
+  </div>
+  <div class="example__demo duo__cell">
+    <div class="gallery js-flickity" data-flickity-options="{ &quot;freeScroll&quot;: true, &quot;wrapAround&quot;: true }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/GgQRJX">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+
+<h2 id="behavior">Behavior</h2>
+
+<h3 id="wraparound">wrapAround</h3>
+
+<p>At the end of cells, wrap-around to the other end for infinite scrolling.</p>
+
+<div class="example duo">
+  <div class="example__code duo__cell">
+<pre><code class="js">wrapAround: <span class="literal">true</span>
+</code></pre>
+  </div>
+  <div class="example__demo duo__cell">
+    <div class="gallery js-flickity" data-flickity-options="{ &quot;wrapAround&quot;: true }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/myXdej">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+
+<h3 id="autoplay">autoPlay</h3>
+
+<p>Automatically advances to the next cell.</p>
+
+<p>Auto-playing will pause when mouse is hovered over, and resume when mouse is hovered off. Auto-playing will stop when the gallery is clicked or a cell is selected.</p>
+
+<div class="example duo">
+  <div class="example__code duo__cell">
+<pre><code class="js">autoPlay: <span class="literal">true</span>
+<span class="comment">// advance cells every 3 seconds</span>
+</code></pre>
+  </div>
+  <div class="example__demo duo__cell">
+    <div class="gallery gallery--auto-play-demo js-flickity" data-flickity-options="{ &quot;autoPlay&quot;: true }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/RNQwaB">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+<div class="example duo">
+  <div class="example__code duo__cell">
+<pre><code class="js">autoPlay: <span class="number">1500</span> <span class="comment">// {Number}</span>
+<span class="comment">// advance cells ever {Number} milliseconds</span>
+<span class="comment">// 1500 will advance cells every 1.5 seconds</span>
+</code></pre>
+  </div>
+  <div class="example__demo duo__cell">
+    <div class="gallery gallery--auto-play-demo js-flickity" data-flickity-options="{ &quot;autoPlay&quot;: 1500 }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/NPyWRZ">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+
+<h3 id="watchcss">watchCSS</h3>
+
+<p>You can enable and disable Flickity with CSS. <code>watchCSS</code> option watches the content of <code>:after</code> of the gallery element. Flickity is enabled if <code>:after</code> <code>content</code> is <code>&apos;flickity&apos;</code>.</p>
+
+<p>IE8 and Android 2.3 do not support watching <code>:after</code>. Flickity will be disabled when <code>watchCSS: true</code>. Set <code>watchCSS: <span class="string">&apos;fallbackOn&apos;</span></code> to enable Flickity for these browsers.</p>
+
+<div class="example duo">
+  <div class="example__code duo__cell">
+<pre><code class="js">watchCSS: <span class="literal">true</span>
+<span class="comment">// enable Flickity in CSS when</span>
+<span class="comment">// element:after { content: &apos;flickity&apos; }</span>
+<span class="comment">// Flickity is disabled for IE8 and Android 2.3</span>
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* enable Flickity by default */</span>
+<span class="class">.gallery</span><span class="pseudo">:after</span> <span class="rules">{
+  <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">&apos;flickity&apos;</span></span></span>;
+  <span class="rule"><span class="attribute">display</span>:<span class="value"> none</span></span>; <span class="comment">/* hide :after */</span>
+<span class="rule">}</span></span>
+
+<span class="at_rule">@<span class="keyword">media</span> screen and ( min-width: <span class="number">768px</span> ) </span>{
+  <span class="comment">/* disable Flickity for large devices */</span>
+  <span class="class">.gallery</span><span class="pseudo">:after</span> <span class="rules">{
+    <span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">&apos;&apos;</span></span></span>;
+  <span class="rule">}</span></span>
+}
+</code></pre>
+  </div>
+  <div class="example__demo duo__cell">
+    <div class="gallery gallery--watch-demo js-flickity" data-flickity-options="{ &quot;watchCSS&quot;: true }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+  </div>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/NPyWbQ">Edit this demo on CodePen</a>
+    </p>
+</div>
+
+
+<h3 id="asnavfor">asNavFor</h3>
+
+<p>Use one Flickity gallery as navigation for another.</p>
+
+<ul>
+  <li>Clicking the nav gallery will select the content gallery.</li>
+  <li>Selecting a cell in the content gallery will sync to the nav gallery.</li>
+</ul>
+
+<pre><code class="js"><span class="comment">// asNavFor can be set a selector string</span>
+asNavFor: <span class="string">&apos;.gallery-main&apos;</span>
+<span class="comment">// or an element</span>
+asNavFor: $(<span class="string">&apos;.gallery-main&apos;</span>)[<span class="number">0</span>]
+asNavFor: <span class="built_in">document</span>.querySelector(<span class="string">&apos;.gallery-main&apos;</span>)
+</code></pre>
+
+<div class="example duo">
+  <div class="example__code duo__cell">
+<pre><code class="js"><span class="comment">// 1st gallery, main</span>
+$(<span class="string">&apos;.gallery-main&apos;</span>).flickity();
+<span class="comment">// 2nd gallery, navigation</span>
+$(<span class="string">&apos;.gallery-nav&apos;</span>).flickity({
+  asNavFor: <span class="string">&apos;.gallery-main&apos;</span>,
+  contain: <span class="literal">true</span>,
+  pageDots: <span class="literal">false</span>
+});
+</code></pre>
+
+<pre><code class="css"><span class="comment">/* is-nav-selected class added to nav cells */</span>
+<span class="class">.gallery-nav</span> <span class="class">.gallery-cell</span><span class="class">.is-nav-selected</span> <span class="rules">{
+  <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#ED2</span></span></span>;
+<span class="rule">}</span></span>
+</code></pre>
+  </div>
+  <div class="example__demo duo__cell">
+    <div class="gallery gallery--as-nav-for-main gallery--full-width js-flickity">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+    <div class="gallery gallery--as-nav-for-nav gallery--nav js-flickity" data-flickity-options="{ &quot;asNavFor&quot;: &quot;.gallery--as-nav-for-main&quot;, &quot;contain&quot;: true, &quot;pageDots&quot;: false }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/wByaqj">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+<div class="call-out">
+  <p><code>asNavFor</code> requires the <a href="https://github.com/metafizzy/flickity-as-nav-for">flickity-as-nav-for package</a>. It already <em>is</em> included with <code>flickity.pkgd.js</code>, but not with Flickity as a stand-alone package. If you are using Browserify or RequireJS without <code>flickity.pkgd.js</code>, you need to install and require <code>flickity-as-nav-for</code> separately. See details in <a href="extras.html">Extras</a>.</p>
+</div>
+
+
+<h2 id="ui">UI</h2>
+
+<h3 id="prevnextbuttons">prevNextButtons</h3>Creates and enables previous &amp; next buttons. Enabled by default <code><span class="comment">prevNextButtons: true</span></code>.<p></p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">prevNextButtons: <span class="literal">false</span>
+<span class="comment">// Disable previous &amp; next buttons</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="gallery js-flickity" data-flickity-options="{ &quot;prevNextButtons&quot;: false }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/QwQbQJ">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+
+<h3 id="pagedots">pageDots</h3>Creates and enables page dots. Enabled by default <code><span class="comment">pageDots: true</span></code>.<p></p>
+
+<div class="duo example">
+  <div class="duo__cell example__code">
+<pre><code class="js">pageDots: <span class="literal">false</span>
+<span class="comment">// Disable page dots</span>
+</code></pre>
+  </div>
+  <div class="duo__cell example__demo">
+    <div class="gallery js-flickity" data-flickity-options="{ &quot;pageDots&quot;: false }">
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+      <div class="gallery-cell"></div>
+    </div>
+      <p class="edit-demo">
+          <a href="http://codepen.io/desandro/pen/raJVdN">Edit this demo on CodePen</a>
+      </p>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<nav class="site-nav">
+  <div class="content-wrap">
+    <ul class="site-nav__list">
+      <li class="site-nav__item site-nav__item--homepage"><a href=".">Flickity</a></li>
+      <li class="site-nav__item site-nav__item--style"><a href="style.html">Style</a></li>
+      <li class="site-nav__item site-nav__item--options"><a href="options.html">Options</a></li>
+      <li class="site-nav__item site-nav__item--api"><a href="api.html">API</a></li>
+      <li class="site-nav__item site-nav__item--extras"><a href="extras.html">Extras</a></li>
+      <li class="site-nav__item site-nav__item--license"><a href="license.html">License</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="site-footer">
+  <div class="content-wrap">
+    <p class="site-footer__made-by">Metafizzy makes delightful web UI. Also made by Metafizzy:</p>
+
+    <div class="duo other-products">
+      <div class="duo__cell other-products__cell other-products__cell--isotope">
+        <a href="http://isotope.metafizzy.co/">
+          <img src="http://i.imgur.com/xfGupRf.png" alt="Isotope">
+          <h3>Isotope</h3>
+          <p class="description">Filter &amp; sort magical layouts</p>
+        </a>
+      </div>
+
+      <div class="duo__cell other-products__cell other-products__cell--packery">
+        <a href="http://packery.metafizzy.co/">
+          <img src="http://i.imgur.com/uRXPQfm.png" alt="Packery">
+          <h3>Packery</h3>
+          <p class="description">Gap-less, draggable, bin-packing layout library</p>
+        </a>
+      </div>
+    </div>
+
+    <p class="site-footer__follow">Follow <a href="https://twitter.com/metafizzyco">@metafizzyco on Twitter for Flickity updates</a>.</p>
+
+    <p class="site-footer__help">Help improve these docs.
+      <a href="https://github.com/metafizzy/flickity-docs/issues/">Open an issue</a> or
+      <a href="https://github.com/metafizzy/flickity-docs/blob/master/content/options.mustache">pull request</a>.</p>
+
+  </div> 
+</div> 
+
+  <script src="js/flickity-docs.min.js"></script>
+
+
+</body>
+</html>
