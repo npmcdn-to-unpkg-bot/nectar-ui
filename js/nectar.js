@@ -68,8 +68,12 @@ $(function(){
         $('.heightline-item').biggerlink();
     });
 
-    $('.box-heightline').heightLine();
-    $('.box-biggerlink').biggerlink();
+    $('.box-heightline').imagesLoaded( function(){
+        $('.box-heightline').heightLine();
+    });
+    $('.box-biggerlink').imagesLoaded( function(){
+        $('.box-biggerlink').biggerlink();
+    });
 
     $('a.smooth').smoothScroll();
 
