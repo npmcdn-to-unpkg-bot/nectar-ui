@@ -79,7 +79,7 @@ $(function(){
 
     // Tooltip
     $('.btn-tooltip').tooltip();
-    $('.btn-group [title]').tooltip({
+    $('.btn-group .btn-group-tooltip').tooltip({
         container: 'body'
     });
 
