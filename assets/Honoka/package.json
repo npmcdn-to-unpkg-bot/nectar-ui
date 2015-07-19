@@ -1,13 +1,16 @@
 {
   "name": "Honoka",
-  "version": "3.3.4a",
+  "version": "3.3.5b",
   "description": "Honoka is one of the Bootstrap original theme.",
   "author": "windyakin",
   "website": "http://honokak.osaka/",
-  "license": "MIT License",
+  "license": "MIT",
   "main": "Gruntfile.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "grunt build",
+    "server": "grunt server",
+    "release": "grunt package"
   },
   "repository": {
     "type": "git",
@@ -15,6 +18,7 @@
   },
   "devDependencies": {
     "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-compass": "^0.9.1",
     "grunt-contrib-compress": "^0.13.0",

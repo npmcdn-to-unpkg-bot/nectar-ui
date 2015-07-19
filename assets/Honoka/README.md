@@ -1,5 +1,7 @@
 # Honoka
 
+[![Build Status](https://travis-ci.org/windyakin/Honoka.svg?branch=master)](https://travis-ci.org/windyakin/Honoka)
+
 [http://honokak.osaka/](http://honokak.osaka/)
 
 ![honoka](dist/assets/img/sample.png)
@@ -79,18 +81,34 @@ Bootstrapをつかってウェブページを作成する際に基本となるHT
 </html>
 ```
 
+### Do you hate "YuGothic"?
+
+もしあなたが日本語フォントに游ゴシックを指定したくない場合，その要素に対して``.no-thank-yu``(※``you``ではなく``yu``)を指定することで游ゴシックの指定はされなくなり，Windowsであればメイリオ，Mac OS Xであればヒラギノ角ゴを優先的に使用するようになります。
+
+例えばページ全体に対して游ゴシックを用いたくない場合は，``<body>``に対して``.no-thank-yu``を指定(``<body class="no-thank-yu">``)することで，ページ全体で游ゴシックは使用されなくなります。
+
 ## Grunt
 
-このリポジトリはGruntを使った自動タスクによって，テストや配布用パッケージ生成することができます。
+このリポジトリはGruntを使った自動タスクによって，テストや配布用パッケージを生成することができます。
 
 ### Attention
-``src/bootstrap/``以下についてはGitの[Submodule機能](https://git-scm.com/book/en/v2/Git-Tools-Submodules)を使って[twbs/bootstra-sass](https://github.com/twbs/bootstrap-sass/)(BootstrapのSASS版コード)を読み込んでいるため，ReleaseページでダウンロードできるSource Codeというアーカイブの
-中に含まれていません。よって[twbs/bootstra-sass](https://github.com/twbs/bootstrap-sass/)を直接ダウンロードしてファイルを配置する必要があります。
+
+#### Using Git Submodule
+
+``src/bootstrap/``以下についてはGitの[Submodule機能](https://git-scm.com/book/en/v2/Git-Tools-Submodules)を使って[twbs/bootstra-sass](https://github.com/twbs/bootstrap-sass/)(BootstrapのSass版コード)を読み込んでいるため，ReleaseページでダウンロードできるSource Codeというアーカイブの中に含まれていません。よって[twbs/bootstra-sass](https://github.com/twbs/bootstrap-sass/)を直接ダウンロードしてファイルを配置する必要があります。
 
 一番いいのは，Honokaのリポジトリ自体を``git clone``し，以下のコマンドを実行することです。
 
 ```
 % git submodule update --init src/bootstrap
+```
+
+#### Using Compass
+
+Sassコードのコンパイルに[Compass](http://compass-style.org/)の機能の一部を使用しています。よってSassとは別にコンピュータへCompassがインストールされているする必要があります。
+
+```
+% gem install compass
 ```
 
 ### Test
@@ -119,8 +137,8 @@ grunt package
 
 ## License
 
-[MIT Licesne](LICENSE)
+[MIT License](LICENSE)
 
 ## Author
 
- * windyakin ([windyakin.net](http://windyakin.net/)) 
+ * windyakin ([windyakin.net](http://windyakin.net/))

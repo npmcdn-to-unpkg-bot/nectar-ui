@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-@import url(http://fonts.googleapis.com/css?family=Montserrat);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 @import "compass";
 @import "compass/css3";
@@ -46,7 +46,7 @@ body {
 	margin-bottom: 0;
 	text-align: center;
 	background-color: $brand-honoka;
-	background-image: url(/assets/img/circle.png);
+	background-image: url(../img/circle.png);
 	background-repeat: no-repeat;
 	background-position: -35% center;
 	background-size: 70%;
@@ -56,7 +56,7 @@ body {
 		left: 0;
 		height: 530px;
 		width: 400px;
-		background-image: url(/assets/img/honoka.png);
+		background-image: url(../img/honoka.png);
 		background-repeat: no-repeat;
 	}
 	.outline {
@@ -76,7 +76,7 @@ body {
 }
 
 section.section {
-	padding: ($padding-large-vertical * 10) 0;
+	padding: ($padding-large-vertical * 15) 0;
 	&.section-default {}
 	&.section-inverse {
 		background-color: lighten($brand-honoka, 15%);
@@ -144,6 +144,33 @@ section.section {
 	}
 }
 
+.featured {
+	.subtitle {
+		h2 {
+			font-size: $font-size-h3;
+		}
+	}
+	ul.featured-list {
+		a {
+			opacity: 0.7;
+			&:hover, &:active, &:focus {
+				opacity: 0.5;
+			}
+		}
+		li {
+			margin: $padding-base-vertical $padding-large-horizontal;
+		}
+	}
+}
+
+.thumbnail {
+	background: #FFF;
+	> a {
+		&:hover, &:active, &:focus {
+			opacity: 0.7;
+		}
+	}
+}
 
 footer {
 	padding: $padding-large-vertical*4 0px;

@@ -5,7 +5,7 @@
   <meta name="description" content="Touch, responsive, flickable galleries">
   <meta name="viewport" content="width=device-width">
 
-  <title>Flickity &#xB7; API</title>
+  <title>Flickity &middot; API</title>
 
     <link rel="stylesheet" href="css/flickity-docs.css" media="screen">
 
@@ -49,7 +49,7 @@
 <li class="page-nav__item--h3"><a href="#destroy">destroy</a></li>
 <li class="page-nav__item--h3"><a href="#reloadcells">reloadCells</a></li>
 <li class="page-nav__item--h3"><a href="#getcellelements">getCellElements</a></li>
-<li class="page-nav__item--h3"><a href="#jquery-fn-data-flickity">jQuery.fn.data(&apos;flickity&apos;)</a></li>
+<li class="page-nav__item--h3"><a href="#jquery-fn-data-flickity">jQuery.fn.data('flickity')</a></li>
 <li class="page-nav__item--h3"><a href="#flickity-data">Flickity.data()</a></li>
 <li class="page-nav__item--h2"><a href="#properties">Properties</a></li>
 <li class="page-nav__item--h3"><a href="#selectedindex">selectedIndex</a></li>
@@ -68,6 +68,7 @@
 <li class="page-nav__item--h3"><a href="#pointermove">pointerMove</a></li>
 <li class="page-nav__item--h3"><a href="#pointerup">pointerUp</a></li>
 <li class="page-nav__item--h3"><a href="#staticclick">staticClick</a></li>
+<li class="page-nav__item--h3"><a href="#lazyload">lazyLoad</a></li>
 </ul>
 
 
@@ -76,11 +77,11 @@
 <p>Methods are actions done by Flickity instances.</p>
 
 <p>With jQuery, methods follow the jQuery UI pattern
-  <code>$gallery.flickity( <span class="string">&apos;methodName&apos;</span> <span class="comment">/*, arguments */</span> )</code>.</p>
+  <code>$gallery.flickity( <span class="string">'methodName'</span> <span class="comment">/*, arguments */</span> )</code>.</p>
 
-<pre><code class="js"><span class="keyword">var</span> <span class="jquery_var">$gallery</span> = $(<span class="string">&apos;.gallery&apos;</span>).flickity()
-  .flickity(<span class="string">&apos;next&apos;</span>)
-  .flickity( <span class="string">&apos;select&apos;</span>, <span class="number">4</span> );
+<pre><code class="js"><span class="keyword">var</span> <span class="jquery_var">$gallery</span> = $(<span class="string">'.gallery'</span>).flickity()
+  .flickity(<span class="string">'next'</span>)
+  .flickity( <span class="string">'select'</span>, <span class="number">4</span> );
 </code></pre>
 
 <div class="call-out">
@@ -91,7 +92,7 @@
   <code>flickity.methodName( <span class="comment">/* arguments */</span> )</code>. Unlike jQuery methods, they cannot be chained together.</p>
 
 <pre><code class="js"><span class="comment">// vanilla JS</span>
-<span class="keyword">var</span> <span class="flickity_var">flkty</span> = <span class="keyword">new</span> <span class="flickity">Flickity</span>(<span class="string">&apos;.gallery&apos;</span>);
+<span class="keyword">var</span> <span class="flickity_var">flkty</span> = <span class="keyword">new</span> <span class="flickity">Flickity</span>(<span class="string">'.gallery'</span>);
 <span class="flickity_var">flkty</span>.next();
 <span class="flickity_var">flkty</span>.select( <span class="number">3</span> );
 </code></pre>
@@ -103,7 +104,7 @@
 <p>Select a cell.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.flickity( <span class="string">&apos;select&apos;</span>, index )
+<span class="jquery_var">$gallery</span>.flickity( <span class="string">'select'</span>, index )
 <span class="comment">// vanilla JS</span>
 <span class="flickity_var">flkty</span>.select( index )
 </code></pre>
@@ -116,9 +117,9 @@
 
 <div class="example duo">
   <div class="example__code duo__cell">
-<pre><code class="js">$(<span class="string">&apos;.button-group&apos;</span>).on( <span class="string">&apos;click&apos;</span>, <span class="string">&apos;.button&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+<pre><code class="js">$(<span class="string">'.button-group'</span>).on( <span class="string">'click'</span>, <span class="string">'.button'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
   <span class="keyword">var</span> index = $(<span class="keyword">this</span>).index();
-  <span class="jquery_var">$gallery</span>.flickity( <span class="string">&apos;select&apos;</span>, index );
+  <span class="jquery_var">$gallery</span>.flickity( <span class="string">'select'</span>, index );
 });
 </code></pre>
   </div>
@@ -137,10 +138,10 @@
       <div class="gallery-cell"></div>
       <div class="gallery-cell"></div>
     </div>
-      <p class="edit-demo">
-          <a href="http://codepen.io/desandro/pen/yyvYeN">Edit this demo</a>
-          or <a href="http://codepen.io/desandro/pen/ByYoKM">vanilla JS demo</a> on CodePen
-      </p>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/yyvYeN">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/ByYoKM">vanilla JS demo</a> on CodePen
+    </p>
   </div>
 </div>
 
@@ -150,7 +151,7 @@
 <p>Select the previous cell.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.flickity( <span class="string">&apos;previous&apos;</span>, isWrapped )
+<span class="jquery_var">$gallery</span>.flickity( <span class="string">'previous'</span>, isWrapped )
 <span class="comment">// vanilla JS</span>
 <span class="flickity_var">flkty</span>.previous( isWrapped )
 </code></pre>
@@ -164,12 +165,12 @@
 <div class="example duo">
   <div class="example__code duo__cell">
 <pre><code class="js"><span class="comment">// previous</span>
-$(<span class="string">&apos;.button--previous&apos;</span>).on( <span class="string">&apos;click&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-  <span class="jquery_var">$gallery</span>.flickity(<span class="string">&apos;previous&apos;</span>);
+$(<span class="string">'.button--previous'</span>).on( <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+  <span class="jquery_var">$gallery</span>.flickity(<span class="string">'previous'</span>);
 });
 <span class="comment">// previous wrapped</span>
-$(<span class="string">&apos;.button--previous-wrapped&apos;</span>).on( <span class="string">&apos;click&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-  <span class="jquery_var">$gallery</span>.flickity( <span class="string">&apos;previous&apos;</span>, <span class="literal">true</span> );
+$(<span class="string">'.button--previous-wrapped'</span>).on( <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+  <span class="jquery_var">$gallery</span>.flickity( <span class="string">'previous'</span>, <span class="literal">true</span> );
 });
 </code></pre>
   </div>
@@ -185,10 +186,10 @@ $(<span class="string">&apos;.button--previous-wrapped&apos;</span>).on( <span c
       <div class="gallery-cell"></div>
       <div class="gallery-cell"></div>
     </div>
-      <p class="edit-demo">
-          <a href="http://codepen.io/desandro/pen/emVpdz">Edit this demo</a>
-          or <a href="http://codepen.io/desandro/pen/PwQPGX">vanilla JS demo</a> on CodePen
-      </p>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/emVpdz">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/PwQPGX">vanilla JS demo</a> on CodePen
+    </p>
   </div>
 </div>
 
@@ -198,7 +199,7 @@ $(<span class="string">&apos;.button--previous-wrapped&apos;</span>).on( <span c
 <p>Select the next cell.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.flickity( <span class="string">&apos;next&apos;</span>, isWrapped )
+<span class="jquery_var">$gallery</span>.flickity( <span class="string">'next'</span>, isWrapped )
 <span class="comment">// vanilla JS</span>
 <span class="flickity_var">flkty</span>.next( isWrapped )
 </code></pre>
@@ -212,12 +213,12 @@ $(<span class="string">&apos;.button--previous-wrapped&apos;</span>).on( <span c
 <div class="example duo">
   <div class="example__code duo__cell">
 <pre><code class="js"><span class="comment">// next</span>
-$(<span class="string">&apos;.button--next&apos;</span>).on( <span class="string">&apos;click&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-  <span class="jquery_var">$gallery</span>.flickity(<span class="string">&apos;next&apos;</span>);
+$(<span class="string">'.button--next'</span>).on( <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+  <span class="jquery_var">$gallery</span>.flickity(<span class="string">'next'</span>);
 });
 <span class="comment">// next wrapped</span>
-$(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class="string">&apos;click&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-  <span class="jquery_var">$gallery</span>.flickity( <span class="string">&apos;next&apos;</span>, <span class="literal">true</span> );
+$(<span class="string">'.button--next-wrapped'</span>).on( <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+  <span class="jquery_var">$gallery</span>.flickity( <span class="string">'next'</span>, <span class="literal">true</span> );
 });
 </code></pre>
   </div>
@@ -233,10 +234,10 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
       <div class="gallery-cell"></div>
       <div class="gallery-cell"></div>
     </div>
-      <p class="edit-demo">
-          <a href="http://codepen.io/desandro/pen/JopYby">Edit this demo</a>
-          or <a href="http://codepen.io/desandro/pen/gbvaLQ">vanilla JS demo</a> on CodePen
-      </p>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/JopYby">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/gbvaLQ">vanilla JS demo</a> on CodePen
+    </p>
   </div>
 </div>
 
@@ -248,7 +249,7 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
 <p>Resize the gallery and re-position cells.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.flickity(<span class="string">&apos;resize&apos;</span>)
+<span class="jquery_var">$gallery</span>.flickity(<span class="string">'resize'</span>)
 <span class="comment">// vanilla JS</span>
 <span class="flickity_var">flkty</span>.resize()
 </code></pre>
@@ -257,10 +258,10 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
   <div class="example__code">
     <div class="duo">
       <div class="duo__cell">
-<pre><code class="js">$(<span class="string">&apos;.button--resize&apos;</span>).on( <span class="string">&apos;click&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+<pre><code class="js">$(<span class="string">'.button--resize'</span>).on( <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
   <span class="comment">// expand gallery by toggling class</span>
-  <span class="jquery_var">$gallery</span>.toggleClass(<span class="string">&apos;is-expanded&apos;</span>)
-    .flickity(<span class="string">&apos;resize&apos;</span>);
+  <span class="jquery_var">$gallery</span>.toggleClass(<span class="string">'is-expanded'</span>)
+    .flickity(<span class="string">'resize'</span>);
 });
 </code></pre>
       </div>
@@ -287,10 +288,10 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
       <div class="gallery-cell"></div>
       <div class="gallery-cell"></div>
     </div>
-      <p class="edit-demo">
-          <a href="http://codepen.io/desandro/pen/XJZmMp">Edit this demo</a>
-          or <a href="http://codepen.io/desandro/pen/NPyGjQ">vanilla JS demo</a> on CodePen
-      </p>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/XJZmMp">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/NPyGjQ">vanilla JS demo</a> on CodePen
+    </p>
   </div>
 </div>
 
@@ -298,10 +299,10 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
 
 <div class="duo example">
   <div class="duo__cell example__code">
-<pre><code class="js">$(<span class="string">&apos;.button&apos;</span>).on( <span class="string">&apos;click&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+<pre><code class="js">$(<span class="string">'.button'</span>).on( <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
   <span class="jquery_var">$gallery</span>.show()
     <span class="comment">// resize after un-hiding Flickity</span>
-    .flickity(<span class="string">&apos;resize&apos;</span>);
+    .flickity(<span class="string">'resize'</span>);
 });
 </code></pre>
   </div>
@@ -316,10 +317,10 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
       <div class="gallery-cell"></div>
       <div class="gallery-cell"></div>
     </div>
-      <p class="edit-demo">
-          <a href="http://codepen.io/desandro/pen/eNvdoo">Edit this demo</a>
-          or <a href="http://codepen.io/desandro/pen/gpmLYG">vanilla JS demo</a> on CodePen
-      </p>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/eNvdoo">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/gpmLYG">vanilla JS demo</a> on CodePen
+    </p>
   </div>
 </div>
 
@@ -329,19 +330,19 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
 <p>Position cells at selected position. Trigger <code>reposition</code> after the size of a cell has been changed.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.flickity(<span class="string">&apos;reposition&apos;</span>)
+<span class="jquery_var">$gallery</span>.flickity(<span class="string">'reposition'</span>)
 <span class="comment">// vanilla JS</span>
 <span class="flickity_var">flkty</span>.reposition()
 </code></pre>
 
 <div class="example">
   <div class="example__code">
-<pre><code class="js"><span class="jquery_var">$gallery</span>.on( <span class="string">&apos;staticClick&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, cellElement, cellIndex )</span> </span>{
+<pre><code class="js"><span class="jquery_var">$gallery</span>.on( <span class="string">'staticClick'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, cellElement, cellIndex )</span> </span>{
   <span class="keyword">if</span> ( !cellElement ) {
     <span class="keyword">return</span>;
   }
-  $( cellElement ).toggleClass(<span class="string">&apos;is-expanded&apos;</span>);
-  <span class="jquery_var">$gallery</span>.flickity(<span class="string">&apos;reposition&apos;</span>);
+  $( cellElement ).toggleClass(<span class="string">'is-expanded'</span>);
+  <span class="jquery_var">$gallery</span>.flickity(<span class="string">'reposition'</span>);
 });
 </code></pre>
   </div>
@@ -354,10 +355,10 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
       <div class="gallery-cell"></div>
       <div class="gallery-cell"></div>
     </div>
-      <p class="edit-demo">
-          <a href="http://codepen.io/desandro/pen/zxRvdw">Edit this demo</a>
-          or <a href="http://codepen.io/desandro/pen/vEdgOR">vanilla JS demo</a> on CodePen
-      </p>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/zxRvdw">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/vEdgOR">vanilla JS demo</a> on CodePen
+    </p>
   </div>
 </div>
 
@@ -370,7 +371,7 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
 <p>Prepend elements and create cells to the beginning of the gallery.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.flickity( <span class="string">&apos;prepend&apos;</span>, elements )
+<span class="jquery_var">$gallery</span>.flickity( <span class="string">'prepend'</span>, elements )
 <span class="comment">// vanilla JS</span>
 <span class="flickity_var">flkty</span>.prepend( elements )
 </code></pre>
@@ -382,9 +383,9 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
 
 <div class="duo example">
   <div class="duo__cell example__code">
-<pre><code class="js">$(<span class="string">&apos;.button&apos;</span>).on( <span class="string">&apos;click&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-  <span class="keyword">var</span> $cellElems = $(<span class="string">&apos;&lt;div class=&quot;gallery-cell&quot;&gt;...&lt;/div&gt;&apos;</span>);
-  <span class="jquery_var">$gallery</span>.flickity( <span class="string">&apos;prepend&apos;</span>, $cellElems );
+<pre><code class="js">$(<span class="string">'.button'</span>).on( <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+  <span class="keyword">var</span> $cellElems = $(<span class="string">'&lt;div class="gallery-cell"&gt;...&lt;/div&gt;'</span>);
+  <span class="jquery_var">$gallery</span>.flickity( <span class="string">'prepend'</span>, $cellElems );
 });
 </code></pre>
   </div>
@@ -403,10 +404,10 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
         <span class="gallery-cell__number">3</span>
       </div>
     </div>
-      <p class="edit-demo">
-          <a href="http://codepen.io/desandro/pen/XJZpMN">Edit this demo</a>
-          or <a href="http://codepen.io/desandro/pen/VYQPWx">vanilla JS demo</a> on CodePen
-      </p>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/XJZpMN">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/VYQPWx">vanilla JS demo</a> on CodePen
+    </p>
   </div>
 </div>
 
@@ -416,7 +417,7 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
 <p>Append elements and create cells to the end of the gallery.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.flickity( <span class="string">&apos;append&apos;</span>, elements )
+<span class="jquery_var">$gallery</span>.flickity( <span class="string">'append'</span>, elements )
 <span class="comment">// vanilla JS</span>
 <span class="flickity_var">flkty</span>.append( elements )
 </code></pre>
@@ -428,9 +429,9 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
 
 <div class="duo example">
   <div class="duo__cell example__code">
-<pre><code class="js">$(<span class="string">&apos;.button&apos;</span>).on( <span class="string">&apos;click&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-  <span class="keyword">var</span> $cellElems = $(<span class="string">&apos;&lt;div class=&quot;gallery-cell&quot;&gt;...&lt;/div&gt;&apos;</span>);
-  <span class="jquery_var">$gallery</span>.flickity( <span class="string">&apos;append&apos;</span>, $cellElems );
+<pre><code class="js">$(<span class="string">'.button'</span>).on( <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+  <span class="keyword">var</span> $cellElems = $(<span class="string">'&lt;div class="gallery-cell"&gt;...&lt;/div&gt;'</span>);
+  <span class="jquery_var">$gallery</span>.flickity( <span class="string">'append'</span>, $cellElems );
 });
 </code></pre>
   </div>
@@ -449,10 +450,10 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
         <span class="gallery-cell__number">3</span>
       </div>
     </div>
-      <p class="edit-demo">
-          <a href="http://codepen.io/desandro/pen/qExRVp">Edit this demo</a>
-          or <a href="http://codepen.io/desandro/pen/OPQWOG">vanilla JS demo</a> on CodePen
-      </p>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/qExRVp">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/OPQWOG">vanilla JS demo</a> on CodePen
+    </p>
   </div>
 </div>
 
@@ -462,7 +463,7 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
 <p>Insert elements into the gallery and create cells.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.flickity( <span class="string">&apos;insert&apos;</span>, elements, index )
+<span class="jquery_var">$gallery</span>.flickity( <span class="string">'insert'</span>, elements, index )
 <span class="comment">// vanilla JS</span>
 <span class="flickity_var">flkty</span>.insert( elements, index )
 </code></pre>
@@ -480,9 +481,9 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
 
 <div class="duo example">
   <div class="duo__cell example__code">
-<pre><code class="js">$(<span class="string">&apos;.button&apos;</span>).on( <span class="string">&apos;click&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-  <span class="keyword">var</span> $cellElems = $(<span class="string">&apos;&lt;div class=&quot;gallery-cell&quot;&gt;...&lt;/div&gt;&apos;</span>);
-  <span class="jquery_var">$gallery</span>.flickity( <span class="string">&apos;insert&apos;</span>, $cellElems, <span class="number">1</span> );
+<pre><code class="js">$(<span class="string">'.button'</span>).on( <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+  <span class="keyword">var</span> $cellElems = $(<span class="string">'&lt;div class="gallery-cell"&gt;...&lt;/div&gt;'</span>);
+  <span class="jquery_var">$gallery</span>.flickity( <span class="string">'insert'</span>, $cellElems, <span class="number">1</span> );
 });
 </code></pre>
   </div>
@@ -501,10 +502,10 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
         <span class="gallery-cell__number">3</span>
       </div>
     </div>
-      <p class="edit-demo">
-          <a href="http://codepen.io/desandro/pen/YPeNYj">Edit this demo</a>
-          or <a href="http://codepen.io/desandro/pen/EaQZQv">vanilla JS demo</a> on CodePen
-      </p>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/YPeNYj">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/EaQZQv">vanilla JS demo</a> on CodePen
+    </p>
   </div>
 </div>
 
@@ -514,7 +515,7 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
 <p>Remove cells from gallery and remove elements from DOM.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.flickity( <span class="string">&apos;remove&apos;</span>, elements )
+<span class="jquery_var">$gallery</span>.flickity( <span class="string">'remove'</span>, elements )
 <span class="comment">// vanilla JS</span>
 <span class="flickity_var">flkty</span>.remove( elements )
 </code></pre>
@@ -526,9 +527,9 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
 
 <div class="example">
   <div class="example__code">
-<pre><code class="js">$(<span class="string">&apos;.gallery&apos;</span>).on( <span class="string">&apos;staticClick&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, cellElement, cellIndex )</span> </span>{
+<pre><code class="js">$(<span class="string">'.gallery'</span>).on( <span class="string">'staticClick'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, cellElement, cellIndex )</span> </span>{
   <span class="keyword">if</span> ( cellElement ) {
-    <span class="jquery_var">$gallery</span>.flickity( <span class="string">&apos;remove&apos;</span>, cellElement );
+    <span class="jquery_var">$gallery</span>.flickity( <span class="string">'remove'</span>, cellElement );
   }
 });
 </code></pre>
@@ -561,10 +562,10 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
         <span class="gallery-cell__number">8</span>
       </div>
     </div>
-      <p class="edit-demo">
-          <a href="http://codepen.io/desandro/pen/WbMRgv">Edit this demo</a>
-          or <a href="http://codepen.io/desandro/pen/gbvgdy">vanilla JS demo</a> on CodePen
-      </p>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/WbMRgv">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/gbvgdy">vanilla JS demo</a> on CodePen
+    </p>
   </div>
 </div>
 
@@ -576,20 +577,20 @@ $(<span class="string">&apos;.button--next-wrapped&apos;</span>).on( <span class
 <p>Remove Flickity functionality completely. <code>destroy</code> will return the element back to its pre-initialized state.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.flickity(<span class="string">&apos;destroy&apos;</span>)
+<span class="jquery_var">$gallery</span>.flickity(<span class="string">'destroy'</span>)
 <span class="comment">// vanilla JS</span>
 <span class="flickity_var">flkty</span>.destroy()
 </code></pre>
 
 <div class="example duo">
   <div class="example__code duo__cell">
-<pre><code class="js"><span class="keyword">var</span> <span class="jquery_var">$gallery</span> = $(<span class="string">&apos;.gallery&apos;</span>).flickity();
+<pre><code class="js"><span class="keyword">var</span> <span class="jquery_var">$gallery</span> = $(<span class="string">'.gallery'</span>).flickity();
 <span class="keyword">var</span> isFlickity = <span class="literal">true</span>;
 <span class="comment">// toggle Flickity on/off</span>
-$(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="string">&apos;click&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+$(<span class="string">'.button--toggle'</span>).on( <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
   <span class="keyword">if</span> ( isFlickity ) {
     <span class="comment">// destroy Flickity</span>
-    <span class="jquery_var">$gallery</span>.flickity(<span class="string">&apos;destroy&apos;</span>);
+    <span class="jquery_var">$gallery</span>.flickity(<span class="string">'destroy'</span>);
   } <span class="keyword">else</span> {
     <span class="comment">// init new Flickity</span>
     <span class="jquery_var">$gallery</span>.flickity();
@@ -609,10 +610,10 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
       <div class="gallery-cell"></div>
       <div class="gallery-cell"></div>
     </div>
-      <p class="edit-demo">
-          <a href="http://codepen.io/desandro/pen/dPdNQq">Edit this demo</a>
-          or <a href="http://codepen.io/desandro/pen/emVgoR">vanilla JS demo</a> on CodePen
-      </p>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/dPdNQq">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/emVgoR">vanilla JS demo</a> on CodePen
+    </p>
   </div>
 </div>
 
@@ -623,7 +624,7 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
 <p>Re-collect all cell elements in <code>flickity-slider</code>.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.flickity(<span class="string">&apos;reloadCells&apos;</span>)
+<span class="jquery_var">$gallery</span>.flickity(<span class="string">'reloadCells'</span>)
 <span class="comment">// vanilla JS</span>
 <span class="flickity_var">flkty</span>.reloadCells()
 </code></pre>
@@ -634,7 +635,7 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
 <p>Get the elements of the cells.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="keyword">var</span> cellElements = <span class="jquery_var">$gallery</span>.flickity(<span class="string">&apos;getCellElements&apos;</span>)
+<span class="keyword">var</span> cellElements = <span class="jquery_var">$gallery</span>.flickity(<span class="string">'getCellElements'</span>)
 <span class="comment">// vanilla JS</span>
 <span class="keyword">var</span> cellElements = <span class="flickity_var">flkty</span>.getCellElements()
 </code></pre>
@@ -645,13 +646,13 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
 </p>
 
 
-<h3 id="jquery-fn-data-flickity">jQuery.fn.data(&apos;flickity&apos;)</h3>
+<h3 id="jquery-fn-data-flickity">jQuery.fn.data('flickity')</h3>
 
 <p>Get the Flickity instance from a jQuery object. Flickity instances are useful to access Flickity properties.</p>
 
-<pre><code class="js"><span class="keyword">var</span> <span class="flickity_var">flkty</span> = $(<span class="string">&apos;.gallery&apos;</span>).data(<span class="string">&apos;flickity&apos;</span>)
+<pre><code class="js"><span class="keyword">var</span> <span class="flickity_var">flkty</span> = $(<span class="string">'.gallery'</span>).data(<span class="string">'flickity'</span>)
 <span class="comment">// access Flickity properties</span>
-<span class="built_in">console</span>.log( <span class="string">&apos;gallery at &apos;</span> + <span class="flickity_var">flkty</span>.selectedIndex )
+<span class="built_in">console</span>.log( <span class="string">'gallery at '</span> + <span class="flickity_var">flkty</span>.selectedIndex )
 </code></pre>
 
 
@@ -674,17 +675,17 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
 <div class="example">
   <div class="example__code">
 <pre><code class="html"><span class="comment">&lt;!-- init Flickity in HTML --&gt;</span>
-<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">&quot;main-gallery js-flickity&quot;</span>&gt;</span>...<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"main-gallery js-flickity"</span>&gt;</span>...<span class="tag">&lt;/<span class="title">div</span>&gt;</span>
 </code></pre>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
 <span class="comment">// pass in the element, $element[0], not the jQuery object</span>
-<span class="keyword">var</span> <span class="flickity_var">flkty</span> = <span class="flickity">Flickity</span>.data( $(<span class="string">&apos;.main-gallery&apos;</span>)[<span class="number">0</span>] )
+<span class="keyword">var</span> <span class="flickity_var">flkty</span> = <span class="flickity">Flickity</span>.data( $(<span class="string">'.main-gallery'</span>)[<span class="number">0</span>] )
 <span class="comment">// vanilla JS</span>
-<span class="keyword">var</span> gallery = <span class="built_in">document</span>.querySelector(<span class="string">&apos;.main-gallery&apos;</span>)
+<span class="keyword">var</span> gallery = <span class="built_in">document</span>.querySelector(<span class="string">'.main-gallery'</span>)
 <span class="keyword">var</span> <span class="flickity_var">flkty</span> = <span class="flickity">Flickity</span>.data( gallery )
 <span class="comment">// using a selector string</span>
-<span class="keyword">var</span> <span class="flickity_var">flkty</span> = <span class="flickity">Flickity</span>.data(<span class="string">&apos;.main-gallery&apos;</span>)
+<span class="keyword">var</span> <span class="flickity_var">flkty</span> = <span class="flickity">Flickity</span>.data(<span class="string">'.main-gallery'</span>)
 </code></pre>
   </div>
 </div>
@@ -693,12 +694,12 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
 <h2 id="properties">Properties</h2>
 
 <div class="call-out">
-  <p>Properties are accessed only on Flickity instances. If you initialized Flickity with jQuery, use <code>.data(<span class="string">&apos;flickity&apos;</span>)</code> to get the instance.</p>
+  <p>Properties are accessed only on Flickity instances. If you initialized Flickity with jQuery, use <code>.data(<span class="string">'flickity'</span>)</code> to get the instance.</p>
 
 <pre><code class="js"><span class="comment">// init Flickity with jQuery</span>
-<span class="keyword">var</span> <span class="jquery_var">$gallery</span> = $(<span class="string">&apos;.gallery&apos;</span>).flickity();
+<span class="keyword">var</span> <span class="jquery_var">$gallery</span> = $(<span class="string">'.gallery'</span>).flickity();
 <span class="comment">// get instance</span>
-<span class="keyword">var</span> <span class="flickity_var">flkty</span> = <span class="jquery_var">$gallery</span>.data(<span class="string">&apos;flickity&apos;</span>);
+<span class="keyword">var</span> <span class="flickity_var">flkty</span> = <span class="jquery_var">$gallery</span>.data(<span class="string">'flickity'</span>);
 <span class="comment">// access properties</span>
 <span class="built_in">console</span>.log( <span class="flickity_var">flkty</span>.selectedIndex, <span class="flickity_var">flkty</span>.selectedElement );
 </code></pre>
@@ -739,15 +740,15 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
 
 <pre><code class="js"><span class="comment">// jQuery</span>
 <span class="function"><span class="keyword">function</span> <span class="title">listener</span><span class="params">(<span class="comment">/* parameters */</span>)</span> </span>{
-  <span class="built_in">console</span>.log(<span class="string">&apos;eventName happened&apos;</span>);
+  <span class="built_in">console</span>.log(<span class="string">'eventName happened'</span>);
 }
 <span class="comment">// bind event listener</span>
-<span class="jquery_var">$gallery</span>.on( <span class="string">&apos;eventName&apos;</span>, listener );
+<span class="jquery_var">$gallery</span>.on( <span class="string">'eventName'</span>, listener );
 <span class="comment">// unbind event listener</span>
-<span class="jquery_var">$gallery</span>.off( <span class="string">&apos;eventName&apos;</span>, listener );
+<span class="jquery_var">$gallery</span>.off( <span class="string">'eventName'</span>, listener );
 <span class="comment">// bind event listener to trigger once. note ONE not ON</span>
-<span class="jquery_var">$gallery</span>.one( <span class="string">&apos;eventName&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-  <span class="built_in">console</span>.log(<span class="string">&apos;eventName happened just once&apos;</span>);
+<span class="jquery_var">$gallery</span>.one( <span class="string">'eventName'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+  <span class="built_in">console</span>.log(<span class="string">'eventName happened just once'</span>);
 });
 </code></pre>
 
@@ -757,15 +758,15 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
 
 <pre><code class="js"><span class="comment">// vanilla JS</span>
 <span class="function"><span class="keyword">function</span> <span class="title">listener</span><span class="params">(<span class="comment">/* parameters */</span>)</span> </span>{
-  <span class="built_in">console</span>.log(<span class="string">&apos;eventName happened&apos;</span>);
+  <span class="built_in">console</span>.log(<span class="string">'eventName happened'</span>);
 }
 <span class="comment">// bind event listener</span>
-<span class="flickity_var">flkty</span>.on( <span class="string">&apos;eventName&apos;</span>, listener );
+<span class="flickity_var">flkty</span>.on( <span class="string">'eventName'</span>, listener );
 <span class="comment">// unbind event listener</span>
-<span class="flickity_var">flkty</span>.off( <span class="string">&apos;eventName&apos;</span>, listener );
+<span class="flickity_var">flkty</span>.off( <span class="string">'eventName'</span>, listener );
 <span class="comment">// bind event listener to trigger once. note ONCE not ONE or ON</span>
-<span class="flickity_var">flkty</span>.once( <span class="string">&apos;eventName&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-  <span class="built_in">console</span>.log(<span class="string">&apos;eventName happened just once&apos;</span>);
+<span class="flickity_var">flkty</span>.once( <span class="string">'eventName'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+  <span class="built_in">console</span>.log(<span class="string">'eventName happened just once'</span>);
 });
 </code></pre>
 
@@ -801,17 +802,17 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
 <p>Triggered when a cell is selected.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.on( <span class="string">&apos;cellSelect&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-  <span class="built_in">console</span>.log( <span class="string">&apos;Flickity select &apos;</span> + <span class="flickity_var">flkty</span>.selectedIndex )
+<span class="jquery_var">$gallery</span>.on( <span class="string">'cellSelect'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+  <span class="built_in">console</span>.log( <span class="string">'Flickity select '</span> + <span class="flickity_var">flkty</span>.selectedIndex )
 })
 <span class="comment">// vanilla JS</span>
-<span class="flickity_var">flkty</span>.on( <span class="string">&apos;cellSelect&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{...})
+<span class="flickity_var">flkty</span>.on( <span class="string">'cellSelect'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{...})
 </code></pre>
 
-  <p class="edit-demo">
-      <a href="http://codepen.io/desandro/pen/emVgqE">Edit this demo</a>
-      or <a href="http://codepen.io/desandro/pen/ogEwXe">vanilla JS demo</a> on CodePen
-  </p>
+<p class="edit-demo">
+    <a href="http://codepen.io/desandro/pen/emVgqE">Edit this demo</a>
+    or <a href="http://codepen.io/desandro/pen/ogEwXe">vanilla JS demo</a> on CodePen
+</p>
 
 
 <h3 id="settle">settle</h3>
@@ -819,17 +820,17 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
 <p>Triggered when the slider is settled at its end position.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.on( <span class="string">&apos;settle&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
-  <span class="built_in">console</span>.log( <span class="string">&apos;Flickity settled at &apos;</span> + <span class="flickity_var">flkty</span>.selectedIndex )
+<span class="jquery_var">$gallery</span>.on( <span class="string">'settle'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{
+  <span class="built_in">console</span>.log( <span class="string">'Flickity settled at '</span> + <span class="flickity_var">flkty</span>.selectedIndex )
 })
 <span class="comment">// vanilla JS</span>
-<span class="flickity_var">flkty</span>.on( <span class="string">&apos;settle&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{...})
+<span class="flickity_var">flkty</span>.on( <span class="string">'settle'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span> </span>{...})
 </code></pre>
 
-  <p class="edit-demo">
-      <a href="http://codepen.io/desandro/pen/yyvXYL">Edit this demo</a>
-      or <a href="http://codepen.io/desandro/pen/myXweK">vanilla JS demo</a> on CodePen
-  </p>
+<p class="edit-demo">
+    <a href="http://codepen.io/desandro/pen/yyvXYL">Edit this demo</a>
+    or <a href="http://codepen.io/desandro/pen/myXweK">vanilla JS demo</a> on CodePen
+</p>
 
 
 <h3 id="dragstart">dragStart</h3>
@@ -837,9 +838,9 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
 <p>Triggered when dragging starts and the slider starts moving.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.on( <span class="string">&apos;dragStart&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
+<span class="jquery_var">$gallery</span>.on( <span class="string">'dragStart'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
 <span class="comment">// vanilla JS</span>
-<span class="flickity_var">flkty</span>.on( <span class="string">&apos;dragStart&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
+<span class="flickity_var">flkty</span>.on( <span class="string">'dragStart'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
 </code></pre>
 
 <p class="argument">
@@ -853,10 +854,10 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
   <span class="argument__description">The event object that has <code>.pageX</code> and <code>.pageY</code>.</span>
 </p>
 
-  <p class="edit-demo">
-      <a href="http://codepen.io/desandro/pen/KwQqWw">Edit this demo</a>
-      or <a href="http://codepen.io/desandro/pen/RNQgpB">vanilla JS demo</a> on CodePen
-  </p>
+<p class="edit-demo">
+    <a href="http://codepen.io/desandro/pen/KwQqWw">Edit this demo</a>
+    or <a href="http://codepen.io/desandro/pen/RNQgpB">vanilla JS demo</a> on CodePen
+</p>
 
 
 <h3 id="dragmove">dragMove</h3>
@@ -864,9 +865,9 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
 <p>Triggered when dragging moves and the slider moves.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.on( <span class="string">&apos;dragMove&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, moveVector )</span> </span>{...})
+<span class="jquery_var">$gallery</span>.on( <span class="string">'dragMove'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, moveVector )</span> </span>{...})
 <span class="comment">// vanilla JS</span>
-<span class="flickity_var">flkty</span>.on( <span class="string">&apos;dragMove&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, moveVector )</span> </span>{...})
+<span class="flickity_var">flkty</span>.on( <span class="string">'dragMove'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, moveVector )</span> </span>{...})
 </code></pre>
 
 <p class="argument">
@@ -885,10 +886,10 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
   <span class="argument__description">How far the pointer has moved from its start position <code>{ x: 20, y: -30 }</code>.</span>
 </p>
 
-  <p class="edit-demo">
-      <a href="http://codepen.io/desandro/pen/azqwWW">Edit this demo</a>
-      or <a href="http://codepen.io/desandro/pen/YPeQVL">vanilla JS demo</a> on CodePen
-  </p>
+<p class="edit-demo">
+    <a href="http://codepen.io/desandro/pen/azqwWW">Edit this demo</a>
+    or <a href="http://codepen.io/desandro/pen/YPeQVL">vanilla JS demo</a> on CodePen
+</p>
 
 
 <h3 id="dragend">dragEnd</h3>
@@ -896,9 +897,9 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
 <p>Triggered when dragging ends.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.on( <span class="string">&apos;dragEnd&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
+<span class="jquery_var">$gallery</span>.on( <span class="string">'dragEnd'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
 <span class="comment">// vanilla JS</span>
-<span class="flickity_var">flkty</span>.on( <span class="string">&apos;dragEnd&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
+<span class="flickity_var">flkty</span>.on( <span class="string">'dragEnd'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
 </code></pre>
 
 <p class="argument">
@@ -912,20 +913,20 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
   <span class="argument__description">The event object that has <code>.pageX</code> and <code>.pageY</code>.</span>
 </p>
 
-  <p class="edit-demo">
-      <a href="http://codepen.io/desandro/pen/ByYZRb">Edit this demo</a>
-      or <a href="http://codepen.io/desandro/pen/jEZwwO">vanilla JS demo</a> on CodePen
-  </p>
+<p class="edit-demo">
+    <a href="http://codepen.io/desandro/pen/ByYZRb">Edit this demo</a>
+    or <a href="http://codepen.io/desandro/pen/jEZwwO">vanilla JS demo</a> on CodePen
+</p>
 
 
 <h3 id="pointerdown">pointerDown</h3>
 
-<p>Triggered when the user&apos;s pointer (mouse, touch, pointer) presses down.</p>
+<p>Triggered when the user's pointer (mouse, touch, pointer) presses down.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.on( <span class="string">&apos;pointerDown&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
+<span class="jquery_var">$gallery</span>.on( <span class="string">'pointerDown'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
 <span class="comment">// vanilla JS</span>
-<span class="flickity_var">flkty</span>.on( <span class="string">&apos;pointerDown&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
+<span class="flickity_var">flkty</span>.on( <span class="string">'pointerDown'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
 </code></pre>
 
 <p class="argument">
@@ -939,20 +940,20 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
   <span class="argument__description">The event object that has <code>.pageX</code> and <code>.pageY</code>.</span>
 </p>
 
-  <p class="edit-demo">
-      <a href="http://codepen.io/desandro/pen/zxRzzZ">Edit this demo</a>
-      or <a href="http://codepen.io/desandro/pen/ByYZZE">vanilla JS demo</a> on CodePen
-  </p>
+<p class="edit-demo">
+    <a href="http://codepen.io/desandro/pen/zxRzzZ">Edit this demo</a>
+    or <a href="http://codepen.io/desandro/pen/ByYZZE">vanilla JS demo</a> on CodePen
+</p>
 
 
 <h3 id="pointermove">pointerMove</h3>
 
-<p>Triggered when the user&apos;s pointer moves.</p>
+<p>Triggered when the user's pointer moves.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.on( <span class="string">&apos;pointerMove&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, moveVector )</span> </span>{...})
+<span class="jquery_var">$gallery</span>.on( <span class="string">'pointerMove'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, moveVector )</span> </span>{...})
 <span class="comment">// vanilla JS</span>
-<span class="flickity_var">flkty</span>.on( <span class="string">&apos;pointerMove&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, moveVector )</span> </span>{...})
+<span class="flickity_var">flkty</span>.on( <span class="string">'pointerMove'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, moveVector )</span> </span>{...})
 </code></pre>
 
 <p class="argument">
@@ -971,20 +972,20 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
   <span class="argument__description">How far the pointer has moved from its start position <code>{ x: 20, y: -30 }</code>.</span>
 </p>
 
-  <p class="edit-demo">
-      <a href="http://codepen.io/desandro/pen/XJZgap">Edit this demo</a>
-      or <a href="http://codepen.io/desandro/pen/JoLZMP">vanilla JS demo</a> on CodePen
-  </p>
+<p class="edit-demo">
+    <a href="http://codepen.io/desandro/pen/XJZgap">Edit this demo</a>
+    or <a href="http://codepen.io/desandro/pen/JoLZMP">vanilla JS demo</a> on CodePen
+</p>
 
 
 <h3 id="pointerup">pointerUp</h3>
 
-<p>Triggered when the user&apos;s pointer unpresses.</p>
+<p>Triggered when the user's pointer unpresses.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.on( <span class="string">&apos;pointerUp&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
+<span class="jquery_var">$gallery</span>.on( <span class="string">'pointerUp'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
 <span class="comment">// vanilla JS</span>
-<span class="flickity_var">flkty</span>.on( <span class="string">&apos;pointerUp&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
+<span class="flickity_var">flkty</span>.on( <span class="string">'pointerUp'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer )</span> </span>{...})
 </code></pre>
 
 <p class="argument">
@@ -998,22 +999,22 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
   <span class="argument__description">The event object that has <code>.pageX</code> and <code>.pageY</code>.</span>
 </p>
 
-  <p class="edit-demo">
-      <a href="http://codepen.io/desandro/pen/qExjXV">Edit this demo</a>
-      or <a href="http://codepen.io/desandro/pen/pvawrj">vanilla JS demo</a> on CodePen
-  </p>
+<p class="edit-demo">
+    <a href="http://codepen.io/desandro/pen/qExjXV">Edit this demo</a>
+    or <a href="http://codepen.io/desandro/pen/pvawrj">vanilla JS demo</a> on CodePen
+</p>
 
 
 <h3 id="staticclick">staticClick</h3>
 
-<p>Triggered when the user&apos;s pointer is pressed and unpressed and has not moved enough to start dragging.</p>
+<p>Triggered when the user's pointer is pressed and unpressed and has not moved enough to start dragging.</p>
 
-<p><code>click</code> events are hard to detect with draggable UI, as they are triggered whenever a user drags. Flickity&apos;s <code>staticClick</code> event resolves this, as it is triggered when the user has not dragged.</p>
+<p><code>click</code> events are hard to detect with draggable UI, as they are triggered whenever a user drags. Flickity's <code>staticClick</code> event resolves this, as it is triggered when the user has not dragged.</p>
 
 <pre><code class="js"><span class="comment">// jQuery</span>
-<span class="jquery_var">$gallery</span>.on( <span class="string">&apos;staticClick&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, cellElement, cellIndex )</span> </span>{...})
+<span class="jquery_var">$gallery</span>.on( <span class="string">'staticClick'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, cellElement, cellIndex )</span> </span>{...})
 <span class="comment">// vanilla JS</span>
-<span class="flickity_var">flkty</span>.on( <span class="string">&apos;staticClick&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, cellElement, cellIndex )</span> </span>{...})
+<span class="flickity_var">flkty</span>.on( <span class="string">'staticClick'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, cellElement, cellIndex )</span> </span>{...})
 </code></pre>
 
 <p class="argument">
@@ -1034,22 +1035,22 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
 <p class="argument">
   <code class="argument__code"><span class="params">cellIndex</span></code>
   <span class="argument__type"><i>Integer</i></span>
-  <span class="argument__description">If a cell was clicked, the cell&#x2019;s zero-based index.</span>
+  <span class="argument__description">If a cell was clicked, the cell&rsquo;s zero-based index.</span>
 </p>
 
 <p>Use the <code><span class="params">cellElement</span></code> and <code><span class="params">cellIndex</span></code> parameters to detect what cell was clicked.</p>
 
 <div class="example">
   <div class="example__code">
-<pre><code class="js"><span class="jquery_var">$gallery</span>.on( <span class="string">&apos;staticClick&apos;</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, cellElement, cellIndex )</span> </span>{
+<pre><code class="js"><span class="jquery_var">$gallery</span>.on( <span class="string">'staticClick'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, pointer, cellElement, cellIndex )</span> </span>{
   <span class="comment">// dismiss if cell was not clicked</span>
   <span class="keyword">if</span> ( !cellElement ) {
     <span class="keyword">return</span>;
   }
   <span class="comment">// change cell background with .is-clicked</span>
-  <span class="jquery_var">$gallery</span>.find(<span class="string">&apos;.is-clicked&apos;</span>).removeClass(<span class="string">&apos;is-clicked&apos;</span>);
-  $( cellElement ).addClass(<span class="string">&apos;is-clicked&apos;</span>);
-  $logger.text( <span class="string">&apos;Cell &apos;</span> + ( cellIndex + <span class="number">1</span> )  + <span class="string">&apos; clicked&apos;</span> );
+  <span class="jquery_var">$gallery</span>.find(<span class="string">'.is-clicked'</span>).removeClass(<span class="string">'is-clicked'</span>);
+  $( cellElement ).addClass(<span class="string">'is-clicked'</span>);
+  $logger.text( <span class="string">'Cell '</span> + ( cellIndex + <span class="number">1</span> )  + <span class="string">' clicked'</span> );
 });
 </code></pre>
   </div>
@@ -1066,13 +1067,51 @@ $(<span class="string">&apos;.button--toggle&apos;</span>).on( <span class="stri
       <div class="gallery-cell"></div>
       <div class="gallery-cell"></div>
     </div>
-    <p class="logger">&#xA0;</p>
-      <p class="edit-demo">
-          <a href="http://codepen.io/desandro/pen/XJZgzM">Edit this demo</a>
-          or <a href="http://codepen.io/desandro/pen/RNQgxe">vanilla JS demo</a> on CodePen
-      </p>
+    <p class="logger">&nbsp;</p>
+    <p class="edit-demo">
+        <a href="http://codepen.io/desandro/pen/XJZgzM">Edit this demo</a>
+        or <a href="http://codepen.io/desandro/pen/RNQgxe">vanilla JS demo</a> on CodePen
+    </p>
   </div>
 </div>
+
+
+<h3 id="lazyload">lazyLoad</h3>
+
+<p>Triggered after an image has been loaded with <a href="options.html#lazyload"><code>lazyLoad</code></a>.</p>
+
+<pre><code class="js"><span class="comment">// jQuery</span>
+<span class="jquery_var">$gallery</span>.on( <span class="string">'lazyLoad'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, cellElement )</span> </span>{...})
+<span class="comment">// vanilla JS</span>
+<span class="flickity_var">flkty</span>.on( <span class="string">'lazyLoad'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, cellElement )</span> </span>{...})
+</code></pre>
+
+<p class="argument">
+  <code class="argument__code"><span class="params">event</span></code>
+  <span class="argument__type"><i>Event</i></span>
+  <span class="argument__description">Original <code>event</code> object.</span>
+</p>
+<p class="argument">
+  <code class="argument__code"><span class="params">cellElement</span></code>
+  <span class="argument__type"><i>Element</i></span>
+  <span class="argument__description">The image's cell element.</span>
+</p>
+
+<p><code>lazyLoad</code> is triggered on both valid images and broken images. Check <code>event.type</code> to see if the loaded image was loaded with <code>load</code> or <code>error</code>. Use <code>event.target</code> to access the loaded image.</p>
+
+<pre><code class="js"><span class="comment">// jQuery</span>
+<span class="jquery_var">$gallery</span>.on( <span class="string">'lazyLoad'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, cellElement )</span> </span>{
+  <span class="keyword">var</span> img = event.originalEvent.target;
+  <span class="built_in">console</span>.log( event.originalEvent.type, img.src );
+  <span class="comment">// load or error on src</span>
+});
+
+<span class="comment">// vanilla JS</span>
+<span class="flickity_var">flkty</span>.on( <span class="string">'lazyLoad'</span>, <span class="function"><span class="keyword">function</span><span class="params">( event, cellElement )</span> </span>{
+  <span class="keyword">var</span> img = event.target;
+  <span class="built_in">console</span>.log( event.type, img.src );
+});
+</code></pre>
 
   </div>
 </div>
