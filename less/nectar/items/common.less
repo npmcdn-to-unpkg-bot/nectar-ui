@@ -90,7 +90,14 @@ ul.item-tag {
     &.bl-hover .item-list-stack-image,
     &.bl-hover .item-list-photo-image,
     &.bl-hover .item-list-tile-image {
-        .opacity(0.6);
+    }
+    // ToDo:iOS8.4.1対策
+    @media (min-width: @grid-float-breakpoint) {
+        &.bl-hover .item-list-stack-image,
+        &.bl-hover .item-list-photo-image,
+        &.bl-hover .item-list-tile-image {
+            .opacity(0.6);
+        }
     }
 
 

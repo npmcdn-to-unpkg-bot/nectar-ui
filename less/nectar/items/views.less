@@ -20,6 +20,11 @@
     }
     .item-view-body {
         padding: @item-view-padding;
+        > *:last-child,
+        > *:last-child > *:last-child,
+        > *:last-child > *:last-child > *:last-child {
+            margin-bottom: 0;
+        }
     }
     .item-view-sub {
         padding: @item-view-padding;
@@ -53,9 +58,12 @@
     .item-view-catch {
     }
     // 説明文
-    .item-lview-content {
+    .item-view-content {
     }
-    
+    // コメント
+    .item-view-comment {
+        .balloon-bottom-border();
+    }
 }
 
 
