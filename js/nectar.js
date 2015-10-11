@@ -15,6 +15,8 @@
 // @codekit-prepend "../assets/iscroll.js";
 // @codekit-prepend "../assets/drawer/js/jquery.drawer.min.js";
 // @codekit-prepend "../assets/gmap3.min.js";
+// @codekit-prepend "../assets/bootstrap-datepicker/js/bootstrap-datepicker.js";
+// @codekit-prepend "../assets/bootstrap-datepicker/js/locales/bootstrap-datepicker.ja.js";
 
 
 /*!
