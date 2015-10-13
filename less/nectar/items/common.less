@@ -103,7 +103,6 @@ ul.item-tag {
 
     // レイアウト
 
-
     // 画像
     .item-list-stack-image,
     .item-list-photo-image,
@@ -187,6 +186,22 @@ ul.item-tag {
         font-size: 11px;
         line-height: 1.2;
         color: @item-color-text;
+    }
+    // フッタ
+    .item-list-stack-footer,
+    .item-list-photo-footer,
+    .item-list-tile-footer {
+        padding: @item-list-padding;
+        background: @item-color-back none;
+        border-top: 1px solid @item-color-border;
+        p {
+            margin: 0;
+            padding: 0;
+            font-size: 11px;
+            line-height: 1.2;
+            color: @item-color-text-light;
+            .text-overflow();
+        }
     }
 }
 
