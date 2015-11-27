@@ -37,6 +37,7 @@
 <li class="page-nav__item--h2"><a href="#browser-support">Browser support</a></li>
 <li class="page-nav__item--h2"><a href="#requirejs">RequireJS</a></li>
 <li class="page-nav__item--h2"><a href="#browserify">Browserify</a></li>
+<li class="page-nav__item--h2"><a href="#webpack">Webpack</a></li>
 <li class="page-nav__item--h2"><a href="#issues">Issues</a></li>
 <li class="page-nav__item--h3"><a href="#reduced-test-cases">Reduced test cases</a></li>
 <li class="page-nav__item--h3"><a href="#submitting-issues">Submitting issues</a></li>
@@ -129,6 +130,7 @@ $(<span class="string">'.button--next'</span>).on( <span class="string">'click'<
     so that gallery can be keyboard navigated on initial page load
   </li>
   <li><a href="http://codepen.io/desandro/pen/LVVqBR">Previous &amp; next buttons in top right corner</a></li>
+  <li><a href="http://codepen.io/desandro/pen/MagWrN">Adding <code>is-previous</code> and <code>is-next</code> cell classes</a></li>
 </ul>
 
 
@@ -184,7 +186,7 @@ requirejs( [
 });
 </code></pre>
 
-<p>You can require Bower dependencies and use Isotope as a jQuery plugin with jQuery Bridget.</p>
+<p>You can require Bower dependencies and use Flickity as a jQuery plugin with jQuery Bridget.</p>
 
 <pre><code class="js">requirejs.config({
   baseUrl: <span class="string">'../bower_components'</span>,
@@ -268,6 +270,48 @@ npm install flickity-as-nav-for
 </code></pre>
 
 
+<h2 id="webpack">Webpack</h2>
+
+<p>Install Flickity and <a href="https://github.com/webpack/imports-loader">imports-loader</a> with npm.</p>
+
+<pre><code class="bash">npm install flickity
+npm install imports-loader
+</code></pre>
+
+<p>In your config file, <code>webpack.config.js</code>, use the imports loader to disable <code>define</code> and set window for <code>flickity</code> modules.</p>
+
+<pre><code class="js"><span class="built_in">module</span>.exports = {
+  <span class="built_in">module</span>: {
+    loaders: [
+      {
+        test: <span class="regexp">/flickity/</span>,
+        loader: <span class="string">'imports?define=&gt;false&amp;this=&gt;window'</span>
+      }
+    ]
+  }
+};
+</code></pre>
+
+<p>(This hack is required because of an issue with how Webpack loads dependencies. <a href="https://github.com/webpack/webpack/issues/883">+1 this issue on GitHub</a> to help get this issue addressed.)</p>
+
+<p>You can then <code>require('flickity')</code>.</p>
+
+<pre><code class="js"><span class="comment">// main.js</span>
+<span class="keyword">var</span> <span class="flickity">Flickity</span> = <span class="built_in">require</span>(<span class="string">'flickity'</span>);
+
+<span class="keyword">var</span> <span class="flickity_var">flkty</span> = <span class="keyword">new</span> <span class="flickity">Flickity</span>( <span class="string">'.gallery'</span>, {
+  <span class="comment">// options...</span>
+});
+</code></pre>
+
+<p>Run webpack.</p>
+
+<pre><code class="bash">webpack main.js bundle.js
+</code></pre>
+
+<p><code>imagesLoaded</code>, <code>asNavFor</code> and jQuery plugin functionality need to be installed separately, <a href="#browserify">similar to using Browserify</a>.</p>
+
+
 <h2 id="issues">Issues</h2>
 
 <h3 id="reduced-test-cases">Reduced test cases</h3>
@@ -312,25 +356,6 @@ npm install flickity-as-nav-for
 
 <div class="site-footer">
   <div class="content-wrap">
-    <p class="site-footer__made-by">Metafizzy makes delightful web UI. Also made by Metafizzy:</p>
-
-    <div class="duo other-products">
-      <div class="duo__cell other-products__cell other-products__cell--isotope">
-        <a href="http://isotope.metafizzy.co/">
-          <img src="http://i.imgur.com/xfGupRf.png" alt="Isotope">
-          <h3>Isotope</h3>
-          <p class="description">Filter &amp; sort magical layouts</p>
-        </a>
-      </div>
-
-      <div class="duo__cell other-products__cell other-products__cell--packery">
-        <a href="http://packery.metafizzy.co/">
-          <img src="http://i.imgur.com/uRXPQfm.png" alt="Packery">
-          <h3>Packery</h3>
-          <p class="description">Gap-less, draggable, bin-packing layout library</p>
-        </a>
-      </div>
-    </div>
 
     <p class="site-footer__follow">Follow <a href="https://twitter.com/metafizzyco">@metafizzyco on Twitter for Flickity updates</a>.</p>
 

@@ -47,6 +47,7 @@ module.exports = function(grunt) {
 				sourcemap: 'none',
 				unixNewlines: true,
 				style: 'expanded',
+				bundleExec: true,
 				loadPath: ['bower_components/bootstrap-sass-official/assets/stylesheets/']
 			},
 			bootstrap: {
@@ -102,10 +103,21 @@ module.exports = function(grunt) {
 				ext: '.css'
 			}
 		},
+		// SCSSのLinter
+		scsslint: {
+			options: {
+				bundleExec: true,
+				config: '.scss-lint.yml',
+				reporterOutput: null,
+				colorizeOutput: true
+			},
+			bootstrap: ['scss/**/*.scss'],
+			assets: ['src/scss/**/*.scss']
+		},
 		// clean
 		clean: {
 			build: {
-				src: ['dist/css/**/*', 'dist/js/**/*', 'dist/fonts/**/*']
+				src: ['bower_components/**/*', 'dist/css/**/*', 'dist/js/**/*', 'dist/fonts/**/*']
 			}
 		},
 		// bowerのインストール
@@ -141,13 +153,8 @@ module.exports = function(grunt) {
 		watch: {
 			// 自動コンパイル
 			bootstrap: {
-				files: ['scss/**/*.scss'],
-				tasks: ['sass:bootstrap'],
-			},
-			// 自動コンパイル
-			assets: {
-				files: ['src/scss/**/*.scss'],
-				tasks: ['sass:assets'],
+				files: ['scss/**/*.scss','src/scss/**/*.scss'],
+				tasks: ['scsslint', 'css'],
 			}
 		},
 		// テストサーバ
@@ -213,25 +220,34 @@ module.exports = function(grunt) {
 
 	// 本家Bootstrapのautoprefixerの設定を読み込む
 	grunt.task.registerTask('setAutoPrefixerConfig', 'Get autoprefixer config from bootstrap', function() {
-		var fs = require('fs');
-		if ( fs.existsSync('bower_components/bootstrap/grunt/configBridge.json') ) {
+		try {
 			var configBridge = grunt.file.readJSON('bower_components/bootstrap/grunt/configBridge.json');
-			var prefixConfig = configBridge.config.autoprefixerBrowsers;
-			grunt.config.merge({
-				autoprefixer: {
-					options: {
-						browsers: prefixConfig
-					}
-				}
-			});
+			grunt.verbose.ok();
+		} catch (e) {
+			grunt.verbose.or.write("Loading Bootstrap configBridge...").error().error(e.message);
+			grunt.fail.fatal('Do you install bower component? Try "grunt bower:install"');
 		}
+		var prefixConfig = configBridge.config.autoprefixerBrowsers;
+		grunt.config.merge({
+			autoprefixer: {
+				options: {
+					browsers: prefixConfig
+				}
+			}
+		});
 	});
 
+	// テスト
+	grunt.registerTask('test', ['scsslint']);
+
+	// CSSビルド
+	grunt.registerTask('css', ['scsslint', 'ect:version', 'sass', 'setAutoPrefixerConfig', 'autoprefixer', 'csscomb']);
+
 	// 通常 (sass/connect/watch)
-	grunt.registerTask('server', ['bower:install', 'ect:version', 'sass', 'connect', 'watch']);
+	grunt.registerTask('server', ['bower:install', 'test', 'css', 'connect', 'watch']);
 
 	// ミニファイ
-	grunt.registerTask('build', ['clean:build', 'bower:install', 'ect:version', 'sass', 'setAutoPrefixerConfig', 'autoprefixer', 'csscomb', 'cssmin:minify', 'replace:banner']);
+	grunt.registerTask('build', ['clean:build', 'bower:install', 'test', 'css', 'cssmin:minify', 'replace:banner']);
 
 	// 配布用パッケージ作成
 	grunt.registerTask('package', ['build', 'compress:main']);
