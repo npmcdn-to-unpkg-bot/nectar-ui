@@ -1,0 +1,25 @@
+//
+// Lists
+// --------------------------------------------------
+
+
+// Annotation List
+// -------------------------
+
+.list-annotation {
+    .list-unstyled();
+    margin-left: @line-height-computed;
+    padding-left: @line-height-computed;
+    li {
+        font-size: floor((100% * @font-size-small / @font-size-base));
+        line-height: 1.2;
+        color: @gray-dark;
+        text-indent: -1em;
+        &:before {
+            display: inline;
+            content: '※ ';
+            color: @gray-dark;
+        }
+    }
+}
+
