@@ -2,19 +2,19 @@
  * Nectar UI
  * http://hncm.jp/
  * 
- * v2015-11-25
+ * v2016-05-03
  */
 
-// @codekit-prepend "../assets/imagesloaded.pkgd.min.js";
-// @codekit-prepend "../assets/masonry.pkgd.min.js";
+// @codekit-prepend "../assets/imagesloaded.pkgd.js";
+// @codekit-prepend "../assets/masonry.pkgd.js";
 // @codekit-prepend "../assets/jquery.heightLine.js";
-// @codekit-prepend "../assets/jquery.biggerlink.min.js";
-// @codekit-prepend "../assets/jquery.smooth-scroll.min.js"; 
+// @codekit-prepend "../assets/jquery.biggerlink.js";
+// @codekit-prepend "../assets/jquery.smooth-scroll.js"; 
 // @codekit-prepend "../assets/fresco/js/fresco/fresco.js";
-// @codekit-prepend "../assets/flickity/flickity.pkgd.min.js";
+// @codekit-prepend "../assets/flickity/flickity.pkgd.js";
 // @codekit-prepend "../assets/iscroll.js";
-// @codekit-prepend "../assets/drawer/js/drawer.min.js";
-// @codekit-prepend "../assets/gmap3.min.js";
+// @codekit-prepend "../assets/drawer/js/drawer.js";
+// @codekit-prepend "../assets/gmap3.js";
 // @codekit-prepend "../assets/bootstrap-datepicker/js/bootstrap-datepicker.js";
 // @codekit-prepend "../assets/bootstrap-datepicker/js/locales/bootstrap-datepicker.ja.js";
 
